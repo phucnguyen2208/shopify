@@ -1,0 +1,27 @@
+.section-banner {
+    margin-top: 40px;
+    .container {
+        .row {
+            margin: 0;
+        }
+        .col-flex:first-child {
+            padding-left: 0;
+        }
+        .col-flex:last-child {
+            padding-right: 0;
+        }
+        .banner {
+            position: relative;
+            &-img {
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            &-content {
+                position: absolute;
+                top: 10%;
+            }
+        }
+    }
+}

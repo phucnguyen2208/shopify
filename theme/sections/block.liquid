@@ -1,0 +1,27 @@
+block
+type:
+ 1. text
+ 2. menu
+ 3. icons
+ 4. interface
+
+<header>
+ <div class="topbar">
+    {% for block in section.blocks %}
+    {% case %}
+      {% when 'topbar_text' %}
+          <div class="topbar-column">
+              {{block.settings.text}}
+          </div>
+    {% endcase %}
+    {%endfor%}
+ </div>
+ <div class="header-content"></div>
+
+</header>
+
+{% comment %}{%- if (forloop.index == 1 or forloop.index == 2) -%}
+                col-md-6
+            {% -elsif forloop.index == 3 -%}
+                col-md-4
+            {%- endif -%}{% endcomment %}

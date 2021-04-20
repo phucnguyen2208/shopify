@@ -1,0 +1,141 @@
+
+<div class="section-banner">
+    <div class="container">
+        <div class="row">
+        {%- for block in section.blocks -%}
+            <div class="col-flex item">
+                <div class="banner">
+                    <div class="banner-img">
+                        <a href="">
+                            <img src="{{ block.settings.image_banner | img_url : 'master' }}" alt="">
+                        </a>
+                    </div>
+                    <div class="banner-content">
+                        {%- if block.settings.text_new != blank -%}
+                            <span class="new">{{block.settings.text_new}}</span>
+                        {%- endif -%}
+                        {%- if block.settings.logo != blank -%}
+                            <img src="{{ block.settings.logo | img_url : '213x47' }}" alt="">
+                        {%- endif -%}
+                        <h3 class="title">{{block.settings.text_title}}</h3>
+                        {%- if block.settings.text_discount != blank -%}
+                            <div class="discount">{{block.settings.text_discount}}</div>
+                        {%- endif -%}
+                        <div class="text-more">
+                            <div class="text-left"></div>
+                            <div class="text-right"></div>
+                        </div>
+                        <a href="">More</a>
+                    </div>
+                </div>
+            </div>
+
+            {%- if forloop.index == 1 -%}
+                {%- style -%}
+                    .col-flex {
+                        -ms-flex: 0 0 100%;
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                    }
+                {%- endstyle -%}
+            {%- elsif forloop.index == 2 -%}
+                {%- style -%}
+                    .col-flex {
+                        -ms-flex: 0 0 50%;
+                        flex: 0 0 50%;
+                        max-width: 50%;
+                        padding-right: 16px;
+                        padding-left: 16px;
+                    }
+                {%- endstyle -%}
+            {%- elsif forloop.index == 3 -%}
+                {%- style -%}
+                    .col-flex {
+                        -ms-flex: 0 0 33.333333%;
+                        flex: 0 0 33.333333%;
+                        max-width: 33.333333%;
+                        padding-right: 16px;
+                        padding-left: 16px;
+                    }
+                {%- endstyle -%}
+            {%- endif -%}
+        {%- endfor -%}
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{%- schema -%}
+
+{
+    "name" : {
+      "en": "Banner"
+    },
+    "tag" : "section",
+    "settings" : [
+        {
+            "type" :"header",
+            "content": "Select Banner"
+        },
+        {
+            "type" :"header",
+            "content": "Custom information"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "header",
+            "name" : "image",
+            "settings" : [
+                {
+                    "type": "image_picker",
+                    "id" : "image_banner",
+                    "label" : {
+                        "en" : "Banner"
+                    }
+                },
+                {
+                    "type" : "text",
+                    "id" : "text_new",
+                    "label" : {
+                    "en" : "Text"
+                    },
+                    "default" : "new"
+                },
+                {
+                    "type" : "text",
+                    "id" : "text_title",
+                    "label" : {
+                    "en" : "Text"
+                    },
+                    "default" : "Get rid of bacteria in your home"
+                },
+                {
+                    "type" : "text",
+                    "id" : "text_discount",
+                    "label" : {
+                    "en" : "Text"
+                    },
+                    "default" : "-30%"
+                }
+            ]
+        }
+
+
+    ],
+    "presets": [
+        {
+            "category": "Advanced layout",
+            "name": "Banner section"
+        }
+    ]
+}
+
+{%- endschema -%}
+

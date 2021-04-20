@@ -1,0 +1,206 @@
+
+
+    <div class="slideContainer">
+        <h1 class ="Heading2 title">{{section.settings.title}}</h1>
+        <div class ="ingredientText" ><p>{{section.settings.ingredient_text}}</p></div>
+        <div class="nav">
+            {%- for block in section.blocks -%}
+                {%- if block.type == 'block-title' -%}
+                    <div class="navElement{% if forloop.first %} selected{% endif %}" id ="nav-{{block.id}}" data-target="block-{{block.id}}">
+                        {{block.settings.block_title}}
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+        <div class = "carouselHolder">
+        {%- for block in section.blocks -%}
+            {% case block.type %}
+                {%- when 'block-title' -%}
+                    <div class = "custom-carousel main-carousel{% if forloop.first %} active{% endif %}" id="block-{{block.id}}">
+                        <div class="tab-carousel">
+                            {%- for item in section.blocks offset: forloop.index -%}
+                                {%- if item.type != 'block-content' -%} {%break%}{%- endif -%}
+                                    <div class="slideContainer carousel-cell">
+                                        <img src ="{{ item.settings.img | img_url }}">
+                                        <div class ="slideContentTitle">{{item.settings.content_title}}</div>
+                                        <div class ="slideContentMessage">
+                                            {{item.settings.content}}
+                                            <p>{{item.settings.from}}</p>
+                                        </div>
+                                    </div>
+                            {% endfor %}
+                        </div>
+                        {%- if block.settings.text != blank -%}
+                            <div class="ingredient-list">
+                                <div class="trigger">
+                                    <span>{{block.settings.trigger}}</span>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="content">{{block.settings.text}}</div>
+                            </div>
+                        {%- endif -%}
+                    </div>
+            {% endcase %}
+        {%- endfor -%}
+        </div>
+
+    </div>
+
+
+
+
+
+<script>
+    function hide(even) {
+      event.target.classList.remove('active');
+    }
+    function carousel(){
+        var navElement = document.querySelectorAll(".navElement");
+        var slider = document.querySelectorAll(".custom-carousel");
+
+        for (i = 0; i < navElement.length; i++) {
+            let nav = navElement[i];
+            nav.addEventListener('click', function(e){
+                var id = this.id.slice(4);
+
+                navElement.forEach((nav) => {
+                    nav.classList.remove('selected');
+                })
+
+                if (e.target){
+                    e.target.classList.add('selected');
+                }
+                let activeTab = document.querySelectorAll('.main-carousel.active');
+                activeTab.length && activeTab.forEach(tab=>tab.classList.remove('active'));
+
+                let selectedTab = document.getElementById(e.target.dataset.target);
+                selectedTab != null && selectedTab.classList.add('active');
+            })
+        }
+    }
+    function show(){
+        let ingredientContent = document.querySelector('.content');
+        let trigger = document.querySelector('.trigger').addEventListener("click", function(e){
+
+            e.target.closest('.ingredient-list').classList.toggle('active');
+
+            if (e.target.closest('.ingredient-list').classList.contains('active')) {
+                ingredientContent.style.display = 'block';
+            }
+            else {
+                ingredientContent.style.display = 'none';
+            }
+        });
+    function ticky(){
+        var elems = document.querySelectorAll('.main-carousel');
+        if(!elems.length) return;
+
+        for (i = 0; i < elems.length; i++) {
+            var flkty = theme.initFlickity( elems[i], {
+                cellAlign: 'left',
+                contain: true,
+                pageDots: true,
+                prevNextButtons: true,
+                autoPlay: 1500,
+                lazyLoad: 2,
+              freeScroll: false,
+              wrapAround: true,
+              selectedAttraction: 0.01,
+              friction: 0.15
+            });
+        }
+    }
+  	window.addEventListener('DOMContentLoaded',function(){
+      {%- if section.blocks.size > 0 -%}carousel();ticky();{%- endif -%}
+      {%- if section.settings.text != blank -%}show();{%- endif -%}
+  	})
+    document.addEventListener('shopify:section:load', () => ticky())
+</script>
+
+
+
+{% schema %}
+
+    {
+        "name": "Product custom tab",
+        "tag": "section",
+        "settings" : [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Header",
+                "default": "Nos ingrédients à la loupe"
+            },
+            {
+                "type": "text",
+                "id": "ingredient_text",
+                "label": "IngredientAlign",
+                "default": "Pourquoi faire compliqué quand on peut faire simple ?"
+            }
+
+        ],
+        "blocks":[
+            {
+                "type": "block-title",
+                "name": "Block Title",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id": "block_title",
+                        "label": "Block Title",
+                        "default" : "shampoing anti-calcaire"
+                    },
+                    {
+                        "type": "text",
+                        "id": "trigger",
+                        "label": "Trigger "
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Description"
+                    }
+                ]
+            },
+            {
+                "type": "block-content",
+                "name": "Block Content",
+                "settings":[
+                    {
+                        "type": "image_picker",
+                        "id": "img",
+                        "label": "Imge"
+                    },
+                    {
+                        "type": "text",
+                        "id": "svg",
+                        "label": "SVG Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "content_title",
+                        "label": "Ingredients"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "content",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "text",
+                        "id": "from",
+                        "label": "From"
+                    }
+
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Advanced layout",
+                "name": "Tab section"
+            }
+        ]
+    }
+
+{% endschema %}

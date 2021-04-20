@@ -1,0 +1,161 @@
+
+<div class="section-slider">
+    <div class="container">
+        <div class="slideshow-container">
+            {%- if section.settings.select_slide == 'container' -%}
+                {%- for block in section.blocks -%}
+                    <div class="mySlides fade slide">
+                        <img src="{{ block.settings.image_slide | img_url : 'master' }}" alt="">
+                        <div class="text-w">
+                            <div class="content-w">
+                                <p>{{block.settings.text_content}}</p>
+                                <div class="price">
+                                    <div class="new-price">{{block.settings.new_price}}</div>
+                                    <div class="old-price">{{block.settings.ol-price}}</div>
+                                </div>
+                                <a href="">Add to cart</a>
+                            </div>
+                        </div>
+                        <div class="discount">
+                            <p>{{block.settings.discount}}</p>
+                        </div>
+                    </div>
+                {%- endfor -%}
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            {%- endif -%}
+        </div>
+    </div>
+
+
+    <div class="slideshow-container">
+        {%- if section.settings.select_slide == 'full' -%}
+            {%- for block in section.blocks -%}
+                <div class="mySlides fade full-slide">
+                    <img src="{{ block.settings.image_slide | img_url : 'master' }}" alt="">
+                    <div class="text-w">Caption Text</div>
+                </div>
+            {%- endfor -%}
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        {%- endif -%}
+    </div>
+
+</div>
+
+
+
+
+<script>
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+
+</script>
+
+
+
+{%- schema -%}
+
+{
+    "name" : {
+      "en": "Slider"
+    },
+    "tag" : "section",
+    "settings" : [
+        {
+            "type" :"header",
+            "content": "Select Slider"
+        },
+        {
+            "type" : "select",
+            "id" : "select_slide",
+            "label": "Position",
+            "options": [
+                {
+                    "value": "full", "label": "Full Slider"
+                },
+                {
+                    "value": "container", "label": "In Container"
+                }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "type": "header",
+            "name" : "image",
+            "settings" : [
+                {
+                    "type": "image_picker",
+                    "id" : "image_slide",
+                    "label" : {
+                        "en" : "Slider"
+                    }
+                },
+                {
+                    "type": "text",
+                    "id" : "text_content",
+                    "label" : {
+                        "en" : "Text"
+                    },
+                    "default" : "Only in this week. Don’t misss!"
+                },
+                {
+                    "type" : "text",
+                    "id" : "new_price",
+                    "label" : {
+                      "en" : "New Price"
+                    },
+                    "default" : "$15.99"
+                },
+                {
+                    "type" : "text",
+                    "id" : "old_price",
+                    "label" : {
+                      "en" : "Old Price"
+                    },
+                    "default" : "$29.99"
+                },
+                {
+                    "type" : "text",
+                    "id" : "discount",
+                    "label" : {
+                      "en" : "Discount"
+                    },
+                    "default" : "-30%"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Advanced layout",
+            "name": "Slide section"
+        }
+    ]
+}
+
+{%- endschema -%}
+

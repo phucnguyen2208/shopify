@@ -1,0 +1,256 @@
+<div class="section-header">
+    <div class="topbar">
+        <div class="container">
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when 'topbar_text' %}
+                        <div class="topbar-column text">
+                            <p>{{block.settings.text}}</p>
+                        </div>
+
+                    {%- when 'topbar_menu' -%}
+                        <div class="topbar-column menu">
+                            {% for link in linklists[block.settings.link_menu].links %}
+                                <a class="menu-link" href="{{ link.url }}">{{ link.title }}</a>
+                            {% endfor %}
+                        </div>
+
+
+                    {%- when 'topbar_icons' -%}
+                        <div class="topbar-column network">
+                            <a class="network-link" href="{{settings.link_facebook}}">{{settings.icon_facebook}}</a>
+                            <a class="network-link" href="{{settings.link_instagram}}">{{settings.icon_instagram}}</a>
+                            <a class="network-link" href="{{settings.link_youtube}}">{{settings.icon_youtube}}</a>
+                            <a class="network-link" href="{{settings.link_pinterest}}">{{settings.icon_pinterest}}</a>
+                            <a class="network-link" href="{{settings.link_linkedIn}}">{{settings.icon_LinkedIn}}</a>
+                        </div>
+
+                    {%- when 'topbar_select' -%}
+                        <div class="topbar-column right">
+                            <div class="option">
+                                <div class="language">
+                                    <p>{{block.settings.text_language}}</p>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="currency">
+                                    <p>{{block.settings.text_currency}}</p>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+
+
+                {% endcase %}
+            {%endfor%}
+        </div>
+    </div>
+
+    <div class="header-content">
+        <div class="container">
+            <div class="logo">
+                <a href="">
+                    <img src="{{ section.settings.logo | img_url : '213x47' }}" alt="">
+                </a>
+            </div>
+
+            {%- for block in section.blocks -%}
+                {%- if block.settings.information_position == 'top' -%}
+                    <div class="help">
+                        <p>{{block.settings.help}}</p>
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+
+
+            {%- render 'search-input' -%}
+
+            <div class="option" style="display:none">
+                <div class="language">
+                    <p>English</p>
+                </div>
+                <div class="currency">
+                    <p>usd</p>
+                </div>
+            </div>
+
+            {%- render 'cart' -%}
+
+        </div>
+    </div>
+
+
+    <div class="navigation">
+        <div class="container">
+            <div class="hamburger">
+                <img src="{{ section.settings.hamburger | img_url : '18x18' }}" alt="">
+            </div>
+            <div class="nav">
+                <ul>
+                    {%- for block in section.blocks -%}
+                        {% for link in linklists[block.settings.link_navigation].links %}
+                            <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+                        {% endfor %}
+                    {%- endfor -%}
+                </ul>
+            </div>
+            <div class="connect">
+                <a href="">Blogs</a>
+                <a href="">Contact</a>
+            </div>
+            {%- for block in section.blocks -%}
+                {%- if block.settings.information_position == 'bottom' -%}
+                    <div class="help">
+                        <p>{{block.settings.help}}</p>
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+    </div>
+
+</div>
+
+
+
+{%- style -%}
+    .topbar {
+        background : {{section.settings.background_color}}
+    }
+{%- endstyle -%}
+
+
+
+
+
+{% schema %}
+
+{
+    "name": "Header Desktop",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color",
+            "default": "#F0F2F5"
+        },
+        {
+            "type" :"header",
+            "content": "Custom information"
+        },
+        {
+            "type": "image_picker",
+            "id" : "logo",
+            "label" : {
+                "en" : "Image Logo"
+            }
+        },
+        {
+            "type" : "header",
+            "content" : "information"
+        },
+        {
+            "type": "image_picker",
+            "id" : "hamburger",
+            "label" : {
+                "en" : "Image Hamburger"
+            }
+        }
+    ],
+    "blocks": [
+        {
+            "type": "topbar_text",
+            "name": "Topbar Text",
+            "settings": [
+                {
+                    "type" : "text",
+                    "id" : "text",
+                    "label": "Text",
+                    "default" : "100% Secure delivery without contacting the courier"
+                }
+            ]
+        },
+        {
+            "type" : "topbar_menu",
+            "name" : "Topbar Menu",
+            "settings" : [
+                {
+                    "type" : "link_list",
+                    "id" : "link_menu",
+                    "label" : {
+                    "en" : "Link Menu"
+                    }
+                }
+            ]
+        },
+        {
+            "type" : "topbar_icons",
+            "name" : "Topbar Icon",
+            "settings" : [
+
+            ]
+        },
+        {
+            "type" : "topbar_select",
+            "name" : "Topbar Select",
+            "settings" : [
+                {
+                    "type": "text",
+                    "id" : "text_language",
+                    "label" : {
+                      "en" : "Language"
+                    },
+                    "default" : "English"
+                },
+                {
+                    "type" : "text",
+                    "id" : "text_currency",
+                    "label" : {
+                      "en" : "Currency"
+                    },
+                    "default" : "USD"
+                }
+            ]
+        },
+        {
+            "type" : "text",
+            "name" : "help",
+            "settings" : [
+                {
+                    "type" : "text",
+                    "id" : "help",
+                    "label" : {
+                      "en" : "Help"
+                    },
+                    "default" : "Need help? 0020 500 - MYMEDI - 000"
+                },
+                {
+                    "type" : "select",
+                    "id" : "information_position",
+                    "label": "Position",
+                    "options": [
+                        {
+                            "value": "top", "label": "On Top"
+                        },
+                        {
+                            "value": "bottom", "label": "On Bottom"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type" : "navigation_menu",
+            "name" : "Navigation Menu",
+            "settings" : [
+                {
+                    "type" : "link_list",
+                    "id" : "link_navigation",
+                    "label" : {
+                    "en" : "Link Navigation"
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %}
