@@ -2848,8 +2848,11 @@ footer {
   width: 100%; }
 
 .section-banner .container .banner-content {
+  position: absolute; }
+
+.section-banner .container .banner-content .info {
   position: absolute;
-  top: 10%; }
+  font-weight: 600; }
 
 .slideContainer {
   width: 100%;

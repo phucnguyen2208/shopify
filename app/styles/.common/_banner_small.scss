@@ -20,8 +20,13 @@
             }
             &-content {
                 position: absolute;
-                top: 10%;
+                .info {
+                    position: absolute;
+                    font-weight: 600;
+                }
             }
         }
     }
+
 }
+
