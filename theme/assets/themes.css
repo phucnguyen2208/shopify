@@ -3151,14 +3151,43 @@ body {
   color: #9babcd;
   text-decoration: line-through; }
 
-li {
+.section-product-deal .container .list-product .content .rating {
+  margin-top: 10px; }
+
+.section-product-deal .container .list-product .content .rating i {
+  color: #ff9923; }
+
+.section-product-deal .container .list-product .content .line {
+  margin: 20px 0 15px;
+  width: 116px;
+  height: 1px;
+  background: #f0f2f5; }
+
+.section-product-deal .container .list-product .content .pcs {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.section-product-deal .container .list-product .content .pcs .text {
+  font-size: 13px;
+  line-height: 14px;
+  color: #5b6c8f; }
+
+.section-product-deal .container .list-product .content .pcs .number {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 38px;
+  color: #103178; }
+
+.section-product-deal li {
   display: inline-block;
   list-style-type: none;
   text-transform: uppercase;
   padding: 16px 12px;
   position: relative; }
 
-li:before {
+.section-product-deal li:before {
   position: absolute;
   top: 50%;
   right: -8px;
@@ -3166,10 +3195,10 @@ li:before {
   transform: translateY(-50%);
   font-size: 40px; }
 
-li:last-child:before {
+.section-product-deal li:last-child:before {
   display: none; }
 
-li span {
+.section-product-deal li span {
   display: block;
   font-weight: 700;
   font-size: 27px;

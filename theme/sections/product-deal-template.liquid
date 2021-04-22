@@ -35,20 +35,23 @@
                                     <div class="new-price">{{ first_available_variant.price | money }}</div>
                                     <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
                                 </div>
-                                <div class="rating"></div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                                 <div class="line"></div>
                                 <div class="pcs">
-
+                                    <p class="text">{{block.settings.pcs}}</p>
+                                    <p class="number">{{block.settings.number}}</p>
                                 </div>
                             </div>
                         </a>
                     {%- endfor -%}
                 {%- endfor -%}
             </div>
-
-            <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -164,6 +167,22 @@
                     "en" : "Title"
                   },
                   "default" : "Extractor used to remove teeth"
+              },
+              {
+                  "type" : "text",
+                  "id" : "pcs",
+                  "label" : {
+                    "en" : "Title Pcs"
+                  },
+                "default" : "No of pcs available"
+              },
+              {
+                  "type" : "text",
+                  "id" : "number",
+                  "label" : {
+                    "en" : "Number"
+                  },
+                  "default" : "10"
               },
               {
                   "type" : "collection",

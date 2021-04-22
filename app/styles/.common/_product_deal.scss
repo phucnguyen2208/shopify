@@ -86,46 +86,77 @@ body {
                         text-decoration: line-through;
                     }
                 }
+                .rating {
+                    margin-top: 10px;
+                    i {
+                        color: #FF9923;
+                    }
+                }
+                .line {
+                    margin: 20px 0 15px;
+                    width: 116px;
+                    height: 1px;
+                    background: #F0F2F5;
+                }
+                .pcs {
+                    width: 90px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .text {
+                        font-size: 13px;
+                        line-height: 14px;
+                        color: #5B6C8F;
+                    }
+                    .number {
+                        font-weight: 600;
+                        font-size: 26px;
+                        line-height: 38px;
+                        color: #103178;
+                    }
+                }
             }
+        }
+    }
+
+    li {
+        display: inline-block;
+        list-style-type: none;
+        text-transform: uppercase;
+        padding: 16px 12px;
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 50%;
+            right: -8px;
+            content: ":";
+            transform: translateY(-50%);
+            font-size: 40px;
+        }
+    }
+
+    li:last-child::before {
+        display: none;
+    }
+
+    li {
+        span {
+            display: block;
+            font-weight: bold;
+            font-size: 27px;
+            line-height: 100%;
+            width: 40px;
+            height: 60px;
+            background: #FF9923;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
 
-li {
-    display: inline-block;
-    list-style-type: none;
-    text-transform: uppercase;
-    padding: 16px 12px;
-    position: relative;
-    &::before {
-        position: absolute;
-        top: 50%;
-        right: -8px;
-        content: ":";
-        transform: translateY(-50%);
-        font-size: 40px;
-    }
-}
 
-li:last-child::before {
-    display: none;
-}
-
-li {
-    span {
-        display: block;
-        font-weight: bold;
-        font-size: 27px;
-        line-height: 100%;
-        width: 40px;
-        height: 60px;
-        background: #FF9923;
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
 
 
 

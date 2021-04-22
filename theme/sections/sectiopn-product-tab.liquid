@@ -1,0 +1,114 @@
+
+<div class="product-tab">
+    <div class="container">
+        <h2>{{section.settings.title}}</h2>
+        <div class="nav">
+            {%- for block in section.blocks -%}
+                {%- if block.type == 'block-title' -%}
+                    <div class="navElement{% if forloop.first %} selected{% endif %}" id ="nav-{{block.id}}" data-target="block-{{block.id}}">
+                        {{block.settings.block_title}}
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+        <div class="carouselHolder">
+            <div class = "custom-carousel main-carousel{% if forloop.first %} active{% endif %}" id="block-{{block.id}}">
+                <div class="tab-carousel">
+                    <div class="slideContainer carousel-cell">
+                        <div class="product-img">
+                            <img src="{{ tab-img01.png | asset_img_url }}" alt="">
+                        </div>
+                        <div class="content">
+                            <span>sale</span>
+                            <h3>Oxygen concentrator model KTS-5000</h3>
+                            <div class="price">
+                                <div class="new-price">$13.91</div>
+                                <div class="old-price">$38.24</div>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%- style -%}
+
+{%- endstyle -%}
+
+
+
+
+
+{% schema %}
+
+    {
+        "name": "Product custom tab",
+        "tag": "section",
+        "settings" : [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Header",
+                "default": "Top 5 Bestsellers in:"
+            }
+        ],
+        "blocks":[
+            {
+                "type": "block-title",
+                "name": "Block Title",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id": "block_title",
+                        "label": "Block Title",
+                        "default" : "Blood pressure"
+                    }
+                ]
+            },
+            {
+                "type": "block-content",
+                "name": "Block Content",
+                "settings":[
+                    {
+                        "type": "image_picker",
+                        "id": "img",
+                        "label": "Imge"
+                    },
+                    {
+                        "type": "text",
+                        "id": "content_title",
+                        "label": "Ingredients"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "content",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "text",
+                        "id": "from",
+                        "label": "From"
+                    }
+
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Advanced layout",
+                "name": "Tab section"
+            }
+        ]
+    }
+
+{% endschema %}
