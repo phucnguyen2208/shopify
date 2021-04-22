@@ -1,0 +1,185 @@
+
+<div class="section-product-deal">
+    <div class="container">
+        <div class="product-deal">
+            {%- if section.settings.title_product != blank -%}
+            <h2>{{section.settings.title_product}}</h2>
+            {%- endif -%}
+            <div id="countdown">
+                <ul>
+                    <li><span id="days"></span></li>
+                    <li><span id="hours"></span></li>
+                    <li><span id="minutes"></span></li>
+                    <li><span id="seconds"></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper list-product">
+                {%- for block in section.blocks -%}
+                    {%- assign collection = collections[block.settings.collection] -%}
+                    {%- for item in collection.products -%}
+                        {%- liquid
+                            assign variant_first = item.variants | first
+                            assign first_available_variant = item.first_available_variant | default: variant_first
+                        -%}
+                        <a class="swiper-slide product-item">
+                            <div class="product-img">
+                                <img src="{{ block.settings.image | img_url : '197x197' }}" alt="">
+                            </div>
+                            <div class="content">
+                                <span>{{block.settings.sale}}</span>
+                                <h3>{{block.settings.title}}</h3>
+                                <div class="price">
+                                    <div class="new-price">{{ first_available_variant.price | money }}</div>
+                                    <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
+                                </div>
+                                <div class="rating"></div>
+                                <div class="line"></div>
+                                <div class="pcs">
+
+                                </div>
+                            </div>
+                        </a>
+                    {%- endfor -%}
+                {%- endfor -%}
+            </div>
+
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 5,
+    spaceBetween: 0,
+    slidesPerGroup: 1,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
+
+<script>
+
+
+(function () {
+    const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+
+    let a = "April 30, 2021 00:00:00",
+        countDown = new Date(a).getTime(),
+        x = setInterval(function() {
+
+        let now = new Date().getTime(),
+            distance = countDown - now;
+
+        document.getElementById("days").innerText = Math.floor(distance / (day)),
+        document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+        //do something later when date is reached
+        if (distance < 0) {
+            let countdown = document.getElementById("countdown")
+            countdown.style.display = "none";
+            clearInterval(x);
+        }
+
+    }, 0)
+}());
+
+
+</script>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Product deals page",
+  "tag": "section",
+  "settings": [
+      {
+          "type": "header",
+          "content": "Settings"
+      },
+      {
+          "type" : "text",
+          "id" : "title_product",
+          "label" : {
+              "en" : "Title"
+          },
+          "default" : "Best Deals of the week!"
+      }
+  ],
+  "blocks": [
+
+      {
+          "type": "header",
+          "name": "Image",
+          "settings": [
+              {
+                  "type": "image_picker",
+                  "id" : "image",
+                  "label" : {
+                      "en" : "Banner"
+                  }
+              },
+              {
+                  "type" : "text",
+                  "id" : "sale",
+                  "label" : {
+                    "en" : "Sale"
+                  },
+                  "default" : "Sale"
+              },
+              {
+                  "type" : "text",
+                  "id" : "title",
+                  "label" : {
+                    "en" : "Title"
+                  },
+                  "default" : "Extractor used to remove teeth"
+              },
+              {
+                  "type" : "collection",
+                  "id" : "collection",
+                  "label" : {
+                    "en" : "Collection"
+                  }
+              }
+          ]
+      }
+  ],
+  "presets": [
+      {
+          "category": "Advanced layout",
+          "name": "Product deals section"
+      }
+  ]
+}
+{% endschema %}
