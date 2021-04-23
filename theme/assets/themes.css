@@ -3063,6 +3063,16 @@ footer {
   color: #9babcd;
   text-decoration: line-through; }
 
+.section-product .container .controls .next, .section-product .container .controls .prev {
+  list-style: none;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  font-size: 7px;
+  padding: 10px; }
+
+.section-product .container .controls .next {
+  right: 101px; }
+
 body {
   position: relative;
   height: 100%;
@@ -3210,3 +3220,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.list-category {
+  margin: 80px 0; }
+
+.list-category .container .row h2 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 110%;
+  color: #103178;
+  margin-bottom: 22px; }
+
+.list-category .container .row .list-item ul {
+  list-style: none; }
+
+.list-category .container .row .list-item a {
+  font-size: 16px;
+  line-height: 30px;
+  color: #103178; }

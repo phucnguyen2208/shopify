@@ -74,5 +74,17 @@ body {
                 }
             }
         }
+        .controls {
+            .prev , .next {
+                list-style: none;
+                background: rgba(0,0,0,0.8);;
+                z-index: 999;
+                font-size: 7px;
+                padding: 10px;
+            }
+            .next {
+                right: 101px;
+            }
+        }
     }
 }

@@ -1,0 +1,68 @@
+
+
+<div class="list-category">
+    <div class="container">
+        <div class="row">
+        {%- for block in section.blocks -%}
+            <div class="col-md-2">
+                <h2>{{block.settings.block_title}}</h2>
+                <div class="list-item">
+                    <ul>
+                        {% for link in linklists[block.settings.link_menu].links %}
+                            <li><a class="menu-link" href="{{ link.url }}">{{ link.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {%- endfor -%}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% schema %}
+
+    {
+        "name": "List Product",
+        "tag": "section",
+        "settings" : [
+            {
+                "type" :"header",
+                "content": "Custom information"
+            }
+        ],
+        "blocks":[
+            {
+                "type": "block-title",
+                "name": "Block Title",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id": "block_title",
+                        "label": "Block Title",
+                        "default" : "Wound Care"
+                    },
+                    {
+                        "type" : "link_list",
+                        "id" : "link_menu",
+                        "label" : {
+                        "en" : "Link Menu"
+                        }
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Advanced layout",
+                "name": "List category section"
+            }
+        ]
+    }
+
+{% endschema %}

@@ -15,8 +15,7 @@
             </div>
         </div>
 
-        <div class="swiper-container">
-            <div class="swiper-wrapper list-product">
+            <div class="my-slider list-product">
                 {%- for block in section.blocks -%}
                     {%- assign collection = collections[block.settings.collection] -%}
                     {%- for item in collection.products -%}
@@ -24,7 +23,7 @@
                             assign variant_first = item.variants | first
                             assign first_available_variant = item.first_available_variant | default: variant_first
                         -%}
-                        <a class="swiper-slide product-item">
+                        <a class="slider-item product-item">
                             <div class="product-img">
                                 <img src="{{ block.settings.image | img_url : '197x197' }}" alt="">
                             </div>
@@ -52,39 +51,42 @@
                     {%- endfor -%}
                 {%- endfor -%}
             </div>
-        </div>
-        <div class="swiper-pagination"></div>
+
     </div>
 </div>
 
 
 
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Initialize Swiper -->
-  <script>
-  var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 5,
-    spaceBetween: 0,
-    slidesPerGroup: 1,
+    const slider = tns({
+    container: '.list-product',
     loop: true,
-    loopFillGroupWithBlank: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    items: 5,
+    slideBy: 'page',
+    nav: false,
+    autoplay: false,
+    speed: 400,
+    autoplayButtonOutput: false,
+    mouseDrag: true,
+    controlsContainer: "#customize-controls",
+    responsive: {
+        640: {
+            items: 2,
+        },
+
+        768: {
+            items: 5,
+        }
+    }
   });
+
 </script>
 
 
-<script>
 
+
+<script>
 
 (function () {
     const second = 1000,
@@ -113,7 +115,6 @@
 
     }, 0)
 }());
-
 
 </script>
 
