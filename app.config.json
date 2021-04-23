@@ -14,7 +14,8 @@
     "_test",
     "_product",
     "_product_deal",
-    "_list_category"
+    "_list_category",
+    "_follow"
   ],
   "homepage": [
     "1_functions",

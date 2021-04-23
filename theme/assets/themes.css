@@ -3068,10 +3068,56 @@ footer {
   background: rgba(0, 0, 0, 0.8);
   z-index: 999;
   font-size: 7px;
-  padding: 10px; }
+  padding: 10px;
+  top: 41%;
+  margin-top: -20px; }
 
 .section-product .container .controls .next {
   right: 101px; }
+
+.section-follow .container h2 {
+  text-align: center;
+  font-size: 25px;
+  line-height: 120%;
+  color: #103178;
+  margin-bottom: 30px; }
+
+.section-connect {
+  margin: 80px 0; }
+
+.section-connect .container {
+  text-align: center; }
+
+.section-connect .container h2 {
+  width: 590px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 120%;
+  color: #103178;
+  margin: auto auto 30px; }
+
+.section-connect .container .connect {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.section-connect .container .connect input {
+  width: 327px;
+  height: 46px;
+  padding: 0 25px;
+  background: #f0f2f5;
+  border-radius: 60px;
+  margin-right: 10px; }
+
+.section-connect .container .connect a {
+  padding: 10px 40px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+  background: #ff9923;
+  border-radius: 42px;
+  height: 46px; }
 
 body {
   position: relative;

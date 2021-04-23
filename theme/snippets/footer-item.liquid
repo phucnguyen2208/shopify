@@ -23,7 +23,7 @@
           {%- endcomment-%}
           {%- when 'menu' -%}
             {%- assign menu = block.settings.menu -%}
-            {%- unless block.settings.title == blank -%}              
+            {%- unless block.settings.title == blank -%}
               <h4 class="footer-menu--title">{{block.settings.title}}</h4>
             {%- endunless -%}
 
@@ -84,13 +84,13 @@
             {%- if show_social_links -%}
               <div class="footer-social-links">
                 {%- unless social_title == blank -%}
-                  <p class="footer-social-links--title">{{social_title}}</p>                  
+                  <p class="footer-social-links--title">{{social_title}}</p>
                 {%- endunless -%}
 
                 <div class="footer-social-icons">
-                  {%- render 'social-media-icons' -%}                  
-                </div>  
-              </div>  
+                  {%- render 'social-media-icons' -%}
+                </div>
+              </div>
             {%- endif -%}
 
             <div class="footer-form">

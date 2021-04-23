@@ -1,0 +1,84 @@
+
+<div class="section-connect" style="background:url({{section.settings.background}})">
+    <div class="container">
+        {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                {%- when 'block-title' -%}
+                    {%- if block.settings.text_title != blank -%}
+                        <h2>{{block.settings.text_title}}</h2>
+                    {%- endif -%}
+
+                {%- when 'block-email' -%}
+                    <div class="connect">
+                        <input type="text" placeholder="Your e-mail address">
+                        <a href="">{{block.settings.text_email}}</a>
+                    </div>
+            {%- endcase -%}
+        {%- endfor -%}
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% schema %}
+
+    {
+        "name": "Connect Us",
+        "tag": "section",
+        "settings" : [
+            {
+                "type" :"header",
+                "content": "Custom information"
+            },
+            {
+                "type": "image_picker",
+                "id" : "background",
+                "label" : {
+                    "en" : "Image Background"
+                }
+            }
+        ],
+        "blocks":[
+            {
+                "type": "block-title",
+                "name": "Block Title",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id" : "text_title",
+                        "label" : {
+                            "en" : "Text"
+                        }
+                    }
+                ]
+            },
+            {
+                "type" : "block-email",
+                "name" : "Block Email",
+                "settings" : [
+                    {
+                        "type": "text",
+                        "id" : "text_email",
+                        "label" : {
+                          "en" : "Text Email"
+                        },
+                        "default" : "Subscribe"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Advanced layout",
+                "name": "Connect section"
+            }
+        ]
+    }
+
+{% endschema %}

@@ -1,0 +1,61 @@
+
+<div class="section-follow">
+    <div class="container">
+        <h2>{{section.settings.block_title}}</h2>
+        <div class="row">
+            {%- for block in section.blocks -%}
+                <div class="list-img col-md-2">
+                    <div class="item-img">
+                        <img src="{{ block.settings.image | img_url : '200x200' }}" alt="">
+                    </div>
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% schema %}
+
+    {
+        "name": "Follow Us",
+        "tag": "section",
+        "settings" : [
+            {
+                "type" :"header",
+                "content": "Custom information"
+            },
+            {
+                "type": "text",
+                "id": "block_title",
+                "label": "Block Title",
+                "default" : "Follow @MYMEDI on instagram"
+            }
+        ],
+        "blocks":[
+            {
+                "type": "block-image",
+                "name": "Block Image",
+                "settings":[
+                    {
+                        "type": "image_picker",
+                        "id" : "image",
+                        "label" : {
+                            "en" : "Image"
+                        }
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Advanced layout",
+                "name": "Follow section"
+            }
+        ]
+    }
+
+{% endschema %}
