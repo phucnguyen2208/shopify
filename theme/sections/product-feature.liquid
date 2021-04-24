@@ -1,0 +1,159 @@
+
+<div class="product-feature">
+    <div class="container">
+        {%- if section.settings.title_product != blank -%}
+            <h2>{{section.settings.title_product}}</h2>
+        {%- endif -%}
+        <div class="list-item">
+            {%- for block in section.blocks -%}
+                {%- assign collection = collections[block.settings.collection] -%}
+                {%- for item in collection.products -%}
+                    {%- liquid
+                        assign variant_first = item.variants | first
+                        assign first_available_variant = item.first_available_variant | default: variant_first
+                    -%}
+
+                    <div class="grid-item">
+                        <a href="">
+                            <div class="image">
+                                <img src="{{ block.settings.image | img_url : '197x197' }}" alt="">
+                            </div>
+                            <div class="content">
+
+                                {%- if block.settings.information_status == 'sale' -%}
+                                    <span class="sale">{{block.settings.sale}}</span>
+
+                                {%- elsif block.settings.information_status == 'hot' -%}
+                                    <span class="hot">{{block.settings.hot}}</span>
+
+                                {%- elsif block.settings.information_status == 'new' -%}
+                                    <span class="new">{{block.settings.new}}</span>
+                                {%- endif -%}
+
+                                <h3>{{block.settings.title}}</h3>
+                                <div class="price">
+                                    <div class="new-price">{{ first_available_variant.price | money }}</div>
+                                    <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                {%- endfor -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Product feature page",
+  "tag": "section",
+  "settings": [
+      {
+          "type": "header",
+          "content": "Settings"
+      },
+      {
+          "type" : "text",
+          "id" : "title_product",
+          "label" : {
+              "en" : "Title"
+          },
+          "default" : "Featured products"
+      }
+  ],
+  "blocks": [
+
+      {
+          "type": "header",
+          "name": "Image",
+          "settings": [
+                {
+                    "type": "image_picker",
+                    "id" : "image",
+                    "label" : {
+                        "en" : "Image"
+                    }
+                },
+                {
+                    "type" : "text",
+                    "id" : "sale",
+                    "label" : {
+                        "en" : "Sale"
+                    },
+                    "default" : "sale"
+                },
+                {
+                    "type" : "text",
+                    "id" : "hot",
+                    "label" : {
+                        "en" : "Hot"
+                    },
+                    "default" : "hot"
+                },
+                {
+                    "type" : "text",
+                    "id" : "new",
+                    "label" : {
+                        "en" : "New"
+                    },
+                    "default" : "new"
+                },
+                {
+                    "type" : "select",
+                    "id" : "information_status",
+                    "label": "Status",
+                    "options": [
+                        {
+                            "value": "none", "label": "None"
+                        },
+                        {
+                            "value": "sale", "label": "Sale"
+                        },
+                        {
+                            "value": "hot", "label": "Hot"
+                        },
+                        {
+                            "value": "new", "label": "New"
+                        }
+                    ]
+                },
+                {
+                  "type" : "text",
+                  "id" : "title",
+                  "label" : {
+                    "en" : "Title"
+                  },
+                  "default" : "3-layer mask with an elastic band (1 piece)"
+                },
+                {
+                  "type" : "collection",
+                  "id" : "collection",
+                  "label" : {
+                    "en" : "Collection"
+                  }
+              }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Advanced layout",
+            "name": "Product feature section"
+        }
+    ]
+}
+
+{% endschema %}
