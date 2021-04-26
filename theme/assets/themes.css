@@ -3069,7 +3069,7 @@ footer {
   z-index: 999;
   font-size: 7px;
   padding: 10px;
-  top: 41%;
+  top: 32%;
   margin-top: -20px; }
 
 .section-product .container .controls .next {
@@ -3083,10 +3083,17 @@ footer {
   margin-bottom: 30px; }
 
 .section-connect {
-  margin: 80px 0; }
+  margin: 80px 0;
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .section-connect .container {
   text-align: center; }
+
+.section-connect .container .background {
+  width: 1140px;
+  margin: auto;
+  height: 205px; }
 
 .section-connect .container h2 {
   width: 590px;

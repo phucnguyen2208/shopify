@@ -1,21 +1,22 @@
 
-<div class="section-connect" style="background:url({{section.settings.background}})" >
+<div class="section-connect">
     <div class="container">
-        {%- for block in section.blocks -%}
-            {%- case block.type -%}
-                {%- when 'block-title' -%}
-                    {%- if block.settings.text_title != blank -%}
-                        <h2>{{block.settings.text_title}}</h2>
-                    {%- endif -%}
+        <div class="background" style="background:url({{section.settings.background | img_url : 'master'}})">
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when 'block-title' -%}
+                        {%- if block.settings.text_title != blank -%}
+                            <h2>{{block.settings.text_title}}</h2>
+                        {%- endif -%}
 
-                {%- when 'block-email' -%}
-                    <div class="connect">
-                        <input type="text" placeholder="Your e-mail address">
-                        <a href="">{{block.settings.text_email}}</a>
-                    </div>
-            {%- endcase -%}
-        {%- endfor -%}
-
+                    {%- when 'block-email' -%}
+                        <div class="connect">
+                            <input type="text" placeholder="Your e-mail address">
+                            <a href="">{{block.settings.text_email}}</a>
+                        </div>
+                {%- endcase -%}
+            {%- endfor -%}
+        </div>
     </div>
 </div>
 

@@ -15,8 +15,15 @@
 
 .section-connect {
     margin: 80px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
     .container {
         text-align: center;
+        .background {
+            width: 1140px;
+            margin: auto;
+            height: 205px;
+        }
         h2 {
             width: 590px;
             margin: auto;
