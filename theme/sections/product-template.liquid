@@ -14,7 +14,7 @@
             </li>
         </ul>
 
-        <div class="my-slider list-product">
+        <div class="my-slider-{{section.id}} list-product">
             {%- for block in section.blocks -%}
                 {%- assign collection = collections[block.settings.collection] -%}
                 {%- for item in collection.products -%}
@@ -23,25 +23,25 @@
                         assign first_available_variant = item.first_available_variant | default: variant_first
                     -%}
                         <a class="slider-item product-item">
-                        <div class="product-img">
-                            <img src="{{ block.settings.image | img_url : '197x197' }}" alt="">
-                        </div>
-                        <div class="content">
-                            <span>{{block.settings.sale}}</span>
-                            <h3>{{block.settings.title}}</h3>
-                            <div class="price">
-                                <div class="new-price">{{ first_available_variant.price | money }}</div>
-                                <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
+                            <div class="product-img">
+                                <img src="{{ block.settings.image | img_url : '197x197' }}" alt="">
                             </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <div class="content">
+                                <span>{{block.settings.sale}}</span>
+                                <h3>{{block.settings.title}}</h3>
+                                <div class="price">
+                                    <div class="new-price">{{ first_available_variant.price | money }}</div>
+                                    <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
                 {%- endfor -%}
             {%- endfor -%}
         </div>
@@ -54,8 +54,9 @@
 
 <script>
 
-    const slider = tns({
-    container: '.my-slider',
+(function() {
+     const slider = tns({
+    container: '.my-slider-{{section.id}}',
     loop: true,
     items: 5,
     slideBy: 'page',
@@ -76,6 +77,8 @@
     }
 
   });
+})();
+
 
 </script>
 

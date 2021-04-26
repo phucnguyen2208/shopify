@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="my-slider list-product">
+        <div class="my-slider-{{section.id}} list-product">
             {%- for block in section.blocks -%}
                 {%- assign collection = collections[block.settings.collection] -%}
                 {%- for item in collection.products -%}
@@ -58,8 +58,9 @@
 
 <script>
 
-    const slider = tns({
-    container: '.my-slider',
+(function() {
+     const slider = tns({
+    container: '.my-slider-{{section.id}}',
     loop: true,
     items: 5,
     slideBy: 'page',
@@ -80,6 +81,7 @@
     }
 
   });
+})();
 
 </script>
 
