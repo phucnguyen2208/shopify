@@ -15,6 +15,15 @@
             </div>
         </div>
 
+        <ul class="controls" id="customize-controls-{{section.id}}" aria-label="Carousel Navigation" tabindex="0">
+            <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </li>
+            <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-right fa-5x"></i>
+            </li>
+        </ul>
+
         <div class="my-slider-{{section.id}} list-product">
             {%- for block in section.blocks -%}
                 {%- assign collection = collections[block.settings.collection] -%}
@@ -69,7 +78,7 @@
     speed: 400,
     autoplayButtonOutput: false,
     mouseDrag: true,
-    controlsContainer: "#customize-controls",
+    controlsContainer: "#customize-controls-{{section.id}}",
     responsive: {
         640: {
             items: 2,

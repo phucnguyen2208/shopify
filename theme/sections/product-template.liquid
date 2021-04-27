@@ -5,7 +5,7 @@
             <h2>{{section.settings.title_product}}</h2>
         {%- endif -%}
 
-        <ul class="controls" id="customize-controls" aria-label="Carousel Navigation" tabindex="0">
+        <ul class="controls" id="customize-controls-{{section.id}}" aria-label="Carousel Navigation" tabindex="0">
             <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
                 <i class="fas fa-angle-left fa-5x"></i>
             </li>
@@ -65,7 +65,7 @@
     speed: 400,
     autoplayButtonOutput: false,
     mouseDrag: true,
-    controlsContainer: "#customize-controls",
+    controlsContainer: "#customize-controls-{{section.id}}",
     responsive: {
         640: {
             items: 2,

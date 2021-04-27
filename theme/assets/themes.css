@@ -2595,119 +2595,43 @@ b {
 .pagination-holder .pagination li.active a.next svg path, .pagination-holder .pagination li.active a.prev svg path {
   stroke: var(--btn1-cl); }
 
-footer {
-  margin-top: auto; }
+.section-footer .container .footer-content h2 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 110%;
+  color: #103178;
+  margin-bottom: 22px; }
 
-.section-footer {
-  padding: 30px 0 16px;
-  background: var(--footer-bg-color); }
+.section-footer .container .footer-content .list-item ul {
+  list-style: none; }
 
-.footer-logo {
-  margin: 0 0 18px; }
-
-.footer-block--item {
-  padding-bottom: 15px; }
-
-.footer-form--title, .footer-menu--title, .footer-social-links--title {
+.section-footer .container .footer-content .list-item ul li a {
   font-size: 16px;
-  line-height: 22.4px;
-  font-weight: 400;
-  color: #fff;
-  margin: 9px 0 18px;
-  font-family: var(--ff-heading); }
+  line-height: 30px;
+  color: #103178; }
 
-.footer-logo-information, .footer-logo-information p {
-  color: var(--footer-text-color); }
+.section-footer .container .footer-content h3 {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 36px;
+  color: #103178;
+  margin-bottom: 10px; }
 
-.footer-logo-information p {
-  margin: 0 0 15px;
-  line-height: 21px; }
-
-.footer-logo-information p:last-child {
-  margin-bottom: 0; }
-
-.footer-block--menu ul li {
-  list-style: none;
-  padding-bottom: 8px; }
-
-.footer-block--menu ul li a {
-  color: var(--footer-text-color);
-  font-weight: 400;
-  font-size: var(--body-font-size);
-  line-height: 19.6px; }
-
-@media (hover: hover) {
-  .footer-block--menu ul li:hover a {
-    color: var(--footer-link-hover-color); } }
-
-.footer-block--newsletter .footer-social-links {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 20px;
-  margin-bottom: 20px; }
-
-.footer-block--newsletter .footer-social-links ul {
+.section-footer .container .footer-content .contact {
+  background: #fff;
+  border: 1px solid #f0f2f5;
+  box-sizing: border-box;
+  border-radius: 42px;
+  padding: 5px 30px;
+  margin-top: 30px;
   display: flex;
-  align-items: center; }
-
-.footer-block--newsletter .footer-social-links ul li {
-  -webkit-padding-end: 15px;
-  padding-inline-end: 15px; }
-
-@media (min-width: 992px) {
-  .footer-block--newsletter .footer-social-links ul li {
-    -webkit-padding-end: 30px;
-    padding-inline-end: 30px; } }
-
-.footer-block--newsletter .footer-social-links ul li:last-child {
-  -webkit-padding-end: 0;
-  padding-inline-end: 0; }
-
-.footer-block--newsletter .footer-social-links ul li svg {
-  fill: var(--footer-text-color); }
-
-.footer-block--newsletter .footer-social-links ul li svg path {
-  fill: inherit; }
-
-.footer-block--newsletter .footer-form input {
-  width: 100%;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  background: transparent;
-  margin-bottom: 12px;
-  color: #828282; }
-
-.footer-block--newsletter .footer-form input::-webkit-input-placeholder {
-  color: #828282; }
-
-.footer-block--newsletter .footer-form input:-moz-placeholder, .footer-block--newsletter .footer-form input::-moz-placeholder {
-  color: #828282; }
-
-.footer-block--newsletter .footer-form input:-ms-input-placeholder {
-  color: #828282; }
-
-.footer-block--newsletter .form-subscribe-notify {
-  margin-top: 10px; }
-
-.footer-block--newsletter .form-subscribe-notify .input-error-message {
-  display: flex;
-  align-items: center; }
-
-.footer-block--newsletter .form-subscribe-notify .input-error-message .visually-hidden {
-  -webkit-padding-end: 5px;
-  padding-inline-end: 5px; }
-
-.footer-block--newsletter .form-subscribe-notify p {
-  margin: 0; }
-
-.footer-copyright {
-  border-top: 1px solid rgba(129, 129, 129, 0.2);
-  padding-top: 15px;
-  margin-top: 25px; }
-
-.footer-copyright p {
-  margin: 0;
-  color: var(--footer-text-color);
-  line-height: 19.6px;
-  font-size: var(--body-font-size); }
+  position: absolute;
+  width: 219px;
+  height: 34px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+  color: #103178; }
 
 .slideshow-container {
   position: relative;
