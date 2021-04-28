@@ -2,6 +2,8 @@
 .section-footer {
     .container {
         .footer-content {
+            padding-bottom: 80px;
+            border-bottom: 1px solid #F0F2F5;
             h2 {
                 font-weight: 500;
                 font-size: 18px;
@@ -42,6 +44,38 @@
                 font-weight: 600;
                 font-size: 16px;
                 line-height: 23px;
+                color: #103178;
+            }
+            .col-md-4 p {
+                font-size: 14px;
+                line-height: 20px;
+                color: #5B6C8F;
+            }
+            .col-md-2 p {
+                font-size: 15px;
+                line-height: 23px;
+                color: #5B6C8F;
+                margin-bottom: 10px;
+            }
+            .showmap {
+                font-size: 14px;
+                line-height: 20px;
+                text-decoration-line: underline;
+                color: #5B6C8F;
+            }
+            .network {
+                margin-top: 30px;
+                a {
+                    margin-right: 17px;
+                    color: #5B6C8F;
+                }
+            }
+        }
+        .footer-bottom {
+            padding: 25px 0;
+            .copyright-content {
+                font-size: 16px;
+                line-height: 30px;
                 color: #103178;
             }
         }

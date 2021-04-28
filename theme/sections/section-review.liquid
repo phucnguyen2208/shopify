@@ -1,0 +1,126 @@
+
+<div class="section-review" style="background:url({{section.settings.background | img_url : 'master'}})">
+    <div class="container">
+        <h2><span>"</span>{{section.settings.title}}</h2>
+
+        <ul class="controls" id="customize-controls-{{section.id}}" aria-label="Carousel Navigation" tabindex="0">
+            <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </li>
+            <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-right fa-5x"></i>
+            </li>
+        </ul>
+
+        <div class="content-review my-slider-{{section.id}}">
+            {%- for block in section.blocks -%}
+                <div class="slider-item">
+                    <div class="content-item ">
+                        {{block.settings.content}}
+                        <h3>{{block.settings.text}}</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+
+(function() {
+    const slider = tns({
+    container: '.my-slider-{{section.id}}',
+    loop: true,
+    items: 5,
+    gutter: 32,
+    slideBy: 'page',
+    nav: true,
+    navPosition: "bottom",
+    autoplay: false,
+    speed: 400,
+    autoplayButtonOutput: false,
+    mouseDrag: true,
+    controlsContainer: "#customize-controls-{{section.id}}",
+    responsive: {
+        640: {
+            items: 2,
+        },
+
+        768: {
+            items: 3,
+        }
+    }
+
+  });
+})();
+
+</script>
+
+
+
+
+
+{% schema %}
+
+{
+    "name": "Reviews",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Lates reviews"
+        },
+        {
+            "type": "image_picker",
+            "id" : "background",
+            "label" : {
+                "en" : "Image Background"
+            }
+        }
+    ],
+    "blocks": [
+        {
+            "type" : "block-review",
+            "name" : "Reviews",
+            "settings" : [
+                {
+                    "type": "richtext",
+                    "id" : "content",
+                    "label" : {
+                      "en" : "Review Content"
+                    },
+                    "default" : "<p>Everything is perfect. I would recommend!</p>"
+                },
+                {
+                    "type" : "text",
+                    "id" : "text",
+                    "label" : {
+                      "en" : "Text"
+                    },
+                    "default" : "Mark J"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Advanced layout",
+            "name": "Reviews section"
+        }
+    ]
+}
+
+{% endschema %}

@@ -1,78 +1,72 @@
 
 <div class="section-slider">
-    <div class="container">
-        <div class="slideshow-container">
-            {%- if section.settings.select_slide == 'container' -%}
-                {%- for block in section.blocks -%}
-                    <div class="mySlides fade slide">
-                        <img src="{{ block.settings.image_slide | img_url : 'master' }}" alt="">
-                        <div class="text-w">
-                            <div class="content-w">
-                                <p>{{block.settings.text_content}}</p>
-                                <div class="price">
-                                    <div class="new-price">{{block.settings.new_price}}</div>
-                                    <div class="old-price">{{block.settings.ol-price}}</div>
-                                </div>
-                                <a href="">Add to cart</a>
+    <div class="{% if section.settings.select_slide == 'full' %}slideshow-container{% else %}container{% endif %}">
+        <div class="my-slider-{{section.id}}">
+            {%- for block in section.blocks -%}
+                <div class="slider-item slide">
+                    <img src="{{ block.settings.image_slide | img_url : 'master' }}" alt="">
+                    <div class="text-w">
+                        <div class="content-w">
+                            <p>{{block.settings.text_content}}</p>
+                            <div class="price">
+                                <div class="new-price">{{block.settings.new_price}}</div>
+                                <div class="old-price">{{block.settings.ol-price}}</div>
                             </div>
-                        </div>
-                        <div class="discount">
-                            <p>{{block.settings.discount}}</p>
+                            <a href="">Add to cart</a>
                         </div>
                     </div>
-                {%- endfor -%}
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            {%- endif -%}
-        </div>
-    </div>
-
-
-    <div class="slideshow-container">
-        {%- if section.settings.select_slide == 'full' -%}
-            {%- for block in section.blocks -%}
-                <div class="mySlides fade full-slide">
-                    <img src="{{ block.settings.image_slide | img_url : 'master' }}" alt="">
-                    <div class="text-w">Caption Text</div>
+                    <div class="discount">
+                        <p>{{block.settings.discount}}</p>
+                    </div>
                 </div>
             {%- endfor -%}
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        {%- endif -%}
+        </div>
+        <ul class="controls" id="customize-controls-{{section.id}}" aria-label="Carousel Navigation" tabindex="0">
+            <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </li>
+            <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-right fa-5x"></i>
+            </li>
+        </ul>
     </div>
-
 </div>
+
 
 
 
 
 <script>
 
-var slideIndex = 1;
-showSlides(slideIndex);
+(function() {
+    const slider = tns({
+    container: '.my-slider-{{section.id}}',
+    loop: true,
+    items: 1,
+    slideBy: 'page',
+    nav: true,
+    autoplay: false,
+    speed: 400,
+    autoplayButtonOutput: false,
+    mouseDrag: true,
+    controlsContainer: "#customize-controls-{{section.id}}",
+    responsive: {
+        640: {
+            items: 2,
+        },
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+        768: {
+            items: 1,
+        }
+    }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  slides[slideIndex-1].style.display = "block";
-}
+  });
+})();
 
 </script>
+
+
+
 
 
 

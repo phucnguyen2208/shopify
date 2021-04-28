@@ -1,13 +1,8 @@
-body {
-    position: relative;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 
 .section-product {
     margin-top: 80px;
     margin-bottom: 70px;
+    position: relative;
     .container {
         h2 {
             text-align: center;
@@ -81,8 +76,7 @@ body {
                 z-index: 999;
                 font-size: 7px;
                 padding: 10px;
-                top: 32%;
-                margin-top: -20px;
+                top: 53%;
             }
             .next {
                 right: 101px;

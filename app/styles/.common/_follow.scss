@@ -59,3 +59,55 @@
         }
     }
 }
+
+
+
+
+.section-review {
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 70px;
+    padding-bottom: 100px;
+    margin-bottom: 80px;
+    .container {
+        h2 {
+            text-align: center;
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 120%;
+            color: #103178;
+            margin-bottom: 30px;
+            span {
+                color: #FF9923;
+            }
+        }
+        .content-review {
+            .content-item {
+                background: #FFFFFF;
+                border-radius: 4px;
+                padding: 30px;
+                p {
+                    font-size: 18px;
+                    line-height: 26px;
+                    color: #103178;
+                    margin-bottom: 15px;
+                }
+                h3 {
+                    font-weight: 600;
+                    font-size: 13px;
+                    line-height: 19px;
+                    color: #103178;
+                    margin-bottom: 15px;
+                }
+                .rating {
+                    i {
+                        color: #FF9923;
+                    }
+                }
+            }
+        }
+        .controls {
+            display: none;
+        }
+    }
+}

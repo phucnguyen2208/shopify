@@ -9,6 +9,9 @@ body {
     margin-top: 80px;
     margin-bottom: 70px;
     .container {
+        .controls {
+            display: none;
+        }
         .product-deal {
             display: flex;
             align-items: center;
