@@ -154,20 +154,35 @@
 
 
 
-    // @include desktop {
-
-	// }
-	@include tablet {
+    @include desktop {
         .topbar {
             .container {
                 .menu {
-                    .menu-link {
-                        margin-left: 10px;
-                        padding-left: 10px;
+                    display: none;
+                }
+            }
+        }
+
+        .navigation {
+            .nav {
+                ul {
+                    li {
+                        margin-right: 12px;
                     }
                 }
             }
         }
+	}
+	@include tablet {
+        .topbar {
+            .container {
+                .menu {
+                    display: none;
+                }
+            }
+        }
+
+
 	}
 	// @include mobile {
 

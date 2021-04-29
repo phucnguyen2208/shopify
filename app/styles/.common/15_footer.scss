@@ -1,3 +1,6 @@
+@import "./mixins/mixins";
+@import "./mixins/variables";
+
 
 .section-footer {
     .container {
@@ -80,4 +83,39 @@
             }
         }
     }
+
+
+
+    @include desktop {
+        .container {
+            .footer-content {
+                .network {
+                    a {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+	}
+	@include tablet {
+
+	}
+	@include mobile {
+        .container {
+            .footer-content {
+                .row {
+                    .col-md-2 {
+                        flex-basis: 33.333333%;
+                        margin-bottom: 30px;
+                    }
+                    .col-md-4 {
+                        flex-basis: 66.666667%;
+                    }
+                }
+            }
+        }
+	}
+	@include mobile-xxs {
+
+	}
 }

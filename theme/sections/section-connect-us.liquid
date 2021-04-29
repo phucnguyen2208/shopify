@@ -1,7 +1,7 @@
 
 <div class="section-connect">
     <div class="container">
-        <div class="background" style="background:url({{section.settings.background | img_url : 'master'}})">
+        <div class="background" style="background:url({{section.settings.background | img_url : 'master'}})"; background-size:"contain">
             {%- for block in section.blocks -%}
                 {%- case block.type -%}
                     {%- when 'block-title' -%}
@@ -28,7 +28,6 @@
         </div>
     </div>
 </div>
-
 
 
 

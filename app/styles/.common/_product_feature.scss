@@ -1,3 +1,6 @@
+@import "./mixins/mixins";
+@import "./mixins/variables";
+
 
 .product-feature {
     margin-bottom: 80px;
@@ -59,4 +62,31 @@
             }
         }
     }
+
+
+
+
+    @include desktop {
+        .container {
+            .list-item {
+                grid-template-columns: auto auto auto auto;
+            }
+        }
+	}
+	@include tablet {
+        .container {
+            h2 {
+                font-size: 30px;
+            }
+            .list-item {
+                grid-template-columns: auto auto;
+            }
+        }
+	}
+	@include mobile {
+
+	}
+	// @include mobile-xxs {
+
+	// }
 }

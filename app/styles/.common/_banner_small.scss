@@ -1,3 +1,8 @@
+@import "./mixins/mixins";
+@import "./mixins/variables";
+
+
+
 .section-banner {
     margin-top: 40px;
     .container {
@@ -27,6 +32,74 @@
             }
         }
     }
+
+
+    @include desktop {
+        .banner {
+            &-content {
+                top: 30px;
+                left: 30px;
+                bottom: 30px;
+                .title {
+                    font-size: 24px;
+                }
+                .discount {
+                    font-size: 36px;
+                }
+            }
+        }
+	}
+	@include tablet {
+        .banner {
+            &-content {
+                top: 10px;
+                left: 20px;
+                bottom: 15px;
+                .title {
+                    font-size: 20px;
+                }
+                .discount {
+                    font-size: 32px;
+                }
+                .info {
+                    font-size: 14px;
+                }
+                .new {
+                    font-size: 10px;
+                }
+            }
+        }
+	}
+	@include mobile {
+        .col-flex {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0;
+        }
+        .banner {
+            &-content {
+                top: 20px;
+                left: 20px;
+                bottom: 20px;
+                width: 120px;
+                .title {
+                    font-size: 16px;
+                }
+                .discount {
+                    font-size: 32px;
+                }
+                .info {
+                    font-size: 14px;
+                    line-height: 14px;
+                    padding: 5px 10px;
+                }
+                .new {
+                    font-size: 8px;
+                }
+            }
+        }
+	}
+
 
 }
 

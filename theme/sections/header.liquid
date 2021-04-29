@@ -88,7 +88,7 @@
                 <ul>
                     {%- for block in section.blocks -%}
                         {% for link in linklists[block.settings.link_navigation].links %}
-                            <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+                            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                         {% endfor %}
                     {%- endfor -%}
                 </ul>

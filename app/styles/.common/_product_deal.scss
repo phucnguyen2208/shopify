@@ -1,3 +1,7 @@
+@import "./mixins/mixins";
+@import "./mixins/variables";
+
+
 body {
     position: relative;
     height: 100%;
@@ -157,6 +161,65 @@ body {
             justify-content: center;
         }
     }
+
+
+
+    @include desktop {
+        .container {
+            .list-product {
+                .content {
+                    span {
+                        width: 40px;
+                        height: 40px;
+                        font-size: 14px;
+                    }
+                    .line {
+                        margin: 10px 0 10px;
+                    }
+                }
+            }
+        }
+	}
+	@include tablet {
+        .container {
+            h2 {
+                margin-right: 20px;
+                font-size: 32px;
+            }
+            #countdown {
+                ul {
+                    li {
+                        padding: 10px 6px;
+                    }
+                }
+            }
+        }
+	}
+	@include mobile {
+        .container {
+            .product-deal {
+                display: block;
+                text-align: center;
+                h2 {
+                    font-size: 30px;
+                    margin-right: 0;
+                }
+                #countdown {
+                    ul {
+                        li {
+                            span {
+                                height: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+	}
+	// @include mobile-xxs {
+
+	// }
+
 }
 
 
