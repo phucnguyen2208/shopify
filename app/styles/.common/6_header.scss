@@ -1,5 +1,7 @@
-.section-header {
+@import "./mixins/mixins";
+@import "./mixins/variables";
 
+.section-header {
     .topbar {
         height: 30px;
         .container {
@@ -7,7 +9,6 @@
             height: 100%;
             text-align: center;
             justify-content: center;
-
             p {
                 height: 100%;
                 font-size: 14px;
@@ -151,110 +152,33 @@
         }
     }
 
-    .home1 {
 
-        .header-bottom {
+
+    // @include desktop {
+
+	// }
+	@include tablet {
+        .topbar {
             .container {
-
-                .search {
-                    margin-right: 120px;
-                }
-                .option {
-                    margin-right: 40px;
-                    display: flex;
-                    align-items: center;
-                    .language {
-                        margin-right: 20px;
-                    }
-                    p {
-                        font-size: 14px;
-                        line-height: 20px;
-                    }
-                }
-
-            }
-        }
-
-        .navigation {
-
-            .container {
-
-
-
-
-                .help {
-                    display: flex;
-                    align-items: center;
-                }
-            }
-        }
-    }
-
-
-
-    .home2 {
-        .header-top {
-            height: 30px;
-            background: var(--gray-color);
-            .container {
-                display: flex;
-                align-items:center;
-                justify-content: space-between;
-                height: 100%;
-                .left {
-                    height: 100%;
-                    p {
-                        display: flex;
-                        align-items:center;
-                        height: 100%;
-                        span {
-                            color: var(--main_color);
-                        }
-                    }
-                }
-                .right {
-                    height: 100%;
-                    .item {
-                        height: 100%;
-                        display: flex;
-                        align-items:center;
-                        .social , .language , .payment {
-                            margin-left: 25px;
-                            padding-left: 25px;
-                            height: 100%;
-                            display: flex;
-                            align-items:center;
-                            border-left: 1px solid var(--main_color);
-                        }
-                        .item-link {
-                            height: 100%;
-                            margin-left: 25px;
-                            padding-left: 25px;
-                            border-left: 1px solid var(--main_color);
-                            display: flex;
-                            align-items:center;
-                        }
-                        .item-link:first-child {
-                            border-left: none;
-                        }
+                .menu {
+                    .menu-link {
+                        margin-left: 10px;
+                        padding-left: 10px;
                     }
                 }
             }
         }
-        .header-bottom {
-            height: 100px;
-            .container {
-                display: flex;
-                align-items: center;
-                height: 100%;
-                .logo {
-                    margin-right: 185px;
-                }
+	}
+	// @include mobile {
 
-            }
-        }
+	// }
+	// @include mobile-xxs {
 
-    }
+	// }
+
+
+
+
 }
 
 .search {
