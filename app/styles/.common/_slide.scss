@@ -119,3 +119,64 @@
 .fa-5x {
     font-size: 2em;
 }
+
+
+
+@include desktop {
+
+}
+@include tablet {
+    .section-slider {
+        .container {
+            .slide {
+                img {
+                    height: 350px;
+                }
+            }
+        }
+    }
+}
+@include mobile {
+    .section-slider {
+        .container {
+            .slide {
+                img {
+                    height: 250px;
+                }
+                .text-w {
+                    width: 305px;
+                    margin-left: 40px;
+                    .content-w {
+                        p {
+                            font-size: 18px;
+                            line-height: 20px;
+                        }
+                        .price {
+                            margin-top: 15px;
+                            margin-bottom: 15px;
+                            .new-price {
+                                font-size: 36px;
+                            }
+                        }
+                        a {
+                            font-size: 14px;
+                            padding: 10px 30px;
+                        }
+                    }
+                }
+                .discount {
+                    display: none;
+                }
+            }
+            .controls {
+                .prev , .next {
+                    padding: 10px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+@include mobile-xxs {
+
+}
