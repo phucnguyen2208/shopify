@@ -1,0 +1,96 @@
+
+<div class="section-point">
+    <div class="container">
+        {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                {%- when 'block-wallet' -%}
+                    <div class="wallet border">
+                        <i class="fas fa-wallet"></i>
+                        <p>{{block.settings.text_wallet}}</p>
+                    </div>
+
+                {%- when 'block-box' -%}
+                    <div class="box border">
+                        <i class="fas fa-box"></i>
+                        <p>{{block.settings.text_box}}</p>
+                    </div>
+
+                {%- when 'block-delivery' -%}
+                    <div class="delivery border">
+                        <i class="fas fa-truck"></i>
+                        <p>{{block.settings.text_delivery}}</p>
+                    </div>
+            {%- endcase -%}
+        {%- endfor -%}
+    </div>
+</div>
+
+
+
+
+
+
+{% schema %}
+
+    {
+        "name": "Point",
+        "tag": "section",
+        "settings" : [
+            {
+                "type" :"header",
+                "content": "Custom information"
+            }
+        ],
+        "blocks":[
+            {
+                "type": "block-wallet",
+                "name": "Block Wallet",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id" : "text_wallet",
+                        "label" : {
+                            "en" : "Wallet"
+                        },
+                        "default" : "100% Money back"
+                    }
+                ]
+            },
+            {
+                "type": "block-box",
+                "name": "Block Box",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id" : "text_box",
+                        "label" : {
+                            "en" : "Box"
+                        },
+                        "default" : "Non-contact shipping"
+                    }
+                ]
+            },
+            {
+                "type": "block-delivery",
+                "name": "Block Delivery",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id" : "text_delivery",
+                        "label" : {
+                            "en" : "Delivery"
+                        },
+                        "default" : "Free delivery for order over $200"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Advanced layout",
+                "name": "Point section"
+            }
+        ]
+    }
+
+{% endschema %}

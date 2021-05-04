@@ -1,7 +1,7 @@
 
 <div class="section-connect">
     <div class="container">
-        <div class="background" style="background:url({{section.settings.background | img_url : 'master'}})"; background-size:"contain">
+        <div class="background" style="background:url({{section.settings.background | img_url : 'master'}})">
             {%- for block in section.blocks -%}
                 {%- case block.type -%}
                     {%- when 'block-title' -%}
@@ -15,13 +15,6 @@
                             <a href="">{{block.settings.text_email}}</a>
                         </div>
 
-
-                        <div class="bottom">
-                            <div class="item">
-                                <i class="fas fa-wallet"></i>
-                                <p>100% Money back</p>
-                            </div>
-                        </div>
                 {%- endcase -%}
             {%- endfor -%}
 

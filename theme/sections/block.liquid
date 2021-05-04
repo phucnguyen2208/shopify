@@ -56,3 +56,62 @@ $(document).ready(function(){
     $(".cart-count").html(cart.item_count)
   })
 });
+
+
+
+<script>
+  function hide(even) {
+    event.target.classList.remove('active');
+  }
+  function carousel(){
+      var navElement = document.querySelectorAll(".navElement");
+      var slider = document.querySelectorAll(".custom-carousel");
+
+      for (i = 0; i < navElement.length; i++) {
+          let nav = navElement[i];
+          nav.addEventListener('click', function(e){
+              var id = this.id.slice(4);
+
+              navElement.forEach((nav) => {
+                  nav.classList.remove('selected');
+              })
+
+              if (e.target){
+                  e.target.classList.add('selected');
+              }
+              let activeTab = document.querySelectorAll('.main-carousel.active');
+              activeTab.length && activeTab.forEach(tab=>tab.classList.remove('active'));
+
+              let selectedTab = document.getElementById(e.target.dataset.target);
+              selectedTab != null && selectedTab.classList.add('active');
+          })
+      }
+  }
+
+    function ticky(){
+      var elems = document.querySelectorAll('.main-carousel');
+      if(!elems.length) return;
+
+      for (i = 0; i < elems.length; i++) {
+          var flkty = theme.initFlickity( elems[i], {
+              cellAlign: 'left',
+              contain: true,
+              pageDots: true,
+              prevNextButtons: true,
+              autoPlay: 1500,
+              lazyLoad: 2,
+              freeScroll: false,
+              wrapAround: true,
+              selectedAttraction: 0.01,
+              friction: 0.15
+          });
+      }
+  }
+  window.addEventListener('DOMContentLoaded',function(){
+      {%- if section.blocks.size > 0 -%}
+      carousel();
+      ticky();
+      {%- endif -%}
+  })
+  document.addEventListener('shopify:section:load', () => ticky())
+</script>

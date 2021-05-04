@@ -1,0 +1,71 @@
+
+<div class="section-popular">
+    <div class="container">
+        <h2>{{section.settings.title}}</h2>
+        <div class="popular">
+            {%- for block in section.blocks -%}
+                <div class="popular-item">
+                    <div class="img">
+                        <img src="{{ block.settings.image | img_url :'36x36' }}" alt="">
+                    </div>
+                    <p>{{block.settings.text}}</p>
+                </div>
+            {%- endfor -%}
+        </div>
+        <div class="show-all">Show all</div>
+    </div>
+</div>
+
+
+
+{% schema %}
+
+    {
+        "name": "Popular",
+        "tag": "section",
+        "settings" : [
+            {
+                "type" :"header",
+                "content": "Custom information"
+            },
+            {
+                "type" : "text",
+                "id" : "title",
+                "label" : {
+                  "en" : "Title"
+                },
+                "default" : "Popular categories"
+            }
+        ],
+        "blocks":[
+            {
+                "type": "item-category",
+                "name": "Item Category",
+                "settings":[
+                    {
+                        "type" : "image_picker",
+                        "id" : "image",
+                        "label" : {
+                          "en" : "Image Logo"
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "id" : "text",
+                        "label" : {
+                            "en" : "Text"
+                        },
+                        "default" : "Bandages"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Advanced layout",
+                "name": "Popular section"
+            }
+        ]
+    }
+
+{% endschema %}

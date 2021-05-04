@@ -179,3 +179,35 @@
 
 	// }
 }
+
+
+
+
+.section-point {
+    border-bottom: 1px solid #F0F2F5;
+    border-top: 1px solid #F0F2F5;
+    margin-bottom: 80px;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .wallet , .box , .delivery {
+            display: flex;
+            align-items: center;
+            padding: 10px 70px;
+            i {
+                margin-right: 13px;
+            }
+            p {
+                font-weight: 600;
+                font-size: 15px;
+                line-height: 22px;
+                color: #103178;
+            }
+        }
+        .border:nth-child(2) {
+            border-left: 1px solid #F0F2F5;
+            border-right: 1px solid #F0F2F5;
+        }
+    }
+}

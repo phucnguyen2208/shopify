@@ -1,0 +1,55 @@
+
+
+.section-popular {
+    margin-bottom: 50px;
+    .container {
+        h2 {
+            text-align: center;
+            font-weight: 600;
+            font-size: 25px;
+            line-height: 120%;
+            color: #103178;
+            margin-bottom: 30px;
+        }
+        .popular {
+            display: flex;
+            &-item {
+                width: 150px;
+                height: 130px;
+                .img {
+                    padding: 27px;
+                    width: 90px;
+                    height: 90px;
+                    margin: auto;
+                    border-radius: 50%;
+                    background: #F0F2F5;
+                    margin-bottom: 15px;
+                }
+                p {
+                    font-weight: 600;
+                    font-size: 17px;
+                    line-height: 25px;
+                    color: #103178;
+                    text-align: center;
+                }
+            }
+        }
+        .show-all {
+            padding: 0px 18px;
+            border: 1px solid #F0F2F5;
+            border-radius: 42px;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 19px;
+            color: #103178;
+            width: 86px;
+            height: 26px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+    }
+}

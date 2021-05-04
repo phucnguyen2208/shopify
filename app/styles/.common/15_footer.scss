@@ -8,7 +8,7 @@
             padding-bottom: 80px;
             border-bottom: 1px solid #F0F2F5;
             h2 {
-                font-weight: 500;
+                font-weight: 600;
                 font-size: 18px;
                 line-height: 110%;
                 color: #103178;
@@ -110,6 +110,9 @@
                     }
                     .col-md-4 {
                         flex-basis: 66.666667%;
+                        h3 {
+                            font-size: 20px;
+                        }
                     }
                 }
             }

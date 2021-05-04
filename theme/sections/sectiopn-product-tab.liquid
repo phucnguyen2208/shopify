@@ -1,44 +1,105 @@
 
 <div class="product-tab">
-    <div class="container">
-        <h2>{{section.settings.title}}</h2>
+    <div class="container slideContainer">
+        <h2>{{ section.settings.title }}</h2>
         <div class="nav">
             {%- for block in section.blocks -%}
                 {%- if block.type == 'block-title' -%}
                     <div class="navElement{% if forloop.first %} selected{% endif %}" id ="nav-{{block.id}}" data-target="block-{{block.id}}">
-                        {{block.settings.block_title}}
+                        {{ block.settings.block_title }}
                     </div>
                 {%- endif -%}
             {%- endfor -%}
         </div>
         <div class="carouselHolder">
-            <div class = "custom-carousel main-carousel{% if forloop.first %} active{% endif %}" id="block-{{block.id}}">
-                <div class="tab-carousel">
-                    <div class="slideContainer carousel-cell">
-                        <div class="product-img">
-                            <img src="{{ tab-img01.png | asset_img_url }}" alt="">
-                        </div>
-                        <div class="content">
-                            <span>sale</span>
-                            <h3>Oxygen concentrator model KTS-5000</h3>
-                            <div class="price">
-                                <div class="new-price">$13.91</div>
-                                <div class="old-price">$38.24</div>
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when 'block-title' -%}
+                        <div class = "custom-carousel main-carousel{% if forloop.first %} active{% endif %}" id="block-{{block.id}}">
+                            <div class="tab-carousel">
+                                {%- for items in section.blocks offset: forloop.index -%}
+                                    {%- assign collection = collections[items.settings.collection] -%}
+                                    {%- if items.type != 'block-content' -%} {%break%}{%- endif -%}
+                                        {%- for item in collection.products -%}
+                                            {%- liquid
+                                                assign variant_first = item.variants | first
+                                                assign first_available_variant = item.first_available_variant | default: variant_first
+                                            -%}
+                                            <div class="carousel-cell">
+                                                <div class="product-img">
+                                                    <img src="{{ items.settings.img | img_url :'197x197' }}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <span>{{ items.settings.text_sale }}</span>
+                                                    <h3>{{ items.settings.text_title }}</h3>
+                                                    <div class="price">
+                                                        <div class="new-price">{{ first_available_variant.price | money }}</div>
+                                                        <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {%- endfor -%}
+                                {%- endfor -%}
                             </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                {%- endcase -%}
+            {%- endfor -%}
         </div>
     </div>
 </div>
+
+
+
+
+
+
+<script>
+    function hide(even) {
+      event.target.classList.remove('active');
+    }
+    function carousel(){
+        var navElement = document.querySelectorAll(".navElement");
+        var slider = document.querySelectorAll(".custom-carousel");
+
+        for (i = 0; i < navElement.length; i++) {
+            let nav = navElement[i];
+            nav.addEventListener('click', function(e){
+                var id = this.id.slice(4);
+
+                navElement.forEach((nav) => {
+                    nav.classList.remove('selected');
+                })
+
+                if (e.target){
+                    e.target.classList.add('selected');
+                }
+                let activeTab = document.querySelectorAll('.main-carousel.active');
+                activeTab.length && activeTab.forEach(tab=>tab.classList.remove('active'));
+
+                let selectedTab = document.getElementById(e.target.dataset.target);
+                selectedTab != null && selectedTab.classList.add('active');
+            })
+        }
+    }
+
+
+  	window.addEventListener('DOMContentLoaded',function(){
+        {%- if section.blocks.size > 0 -%}
+        carousel();
+        {%- endif -%}
+  	})
+</script>
+
+
+
+
 
 
 
@@ -83,20 +144,23 @@
                     },
                     {
                         "type": "text",
-                        "id": "content_title",
-                        "label": "Ingredients"
-                    },
-                    {
-                        "type": "richtext",
-                        "id": "content",
-                        "label": "Description"
+                        "id": "text_sale",
+                        "label": "Sale",
+                        "default" : "sale"
                     },
                     {
                         "type": "text",
-                        "id": "from",
-                        "label": "From"
+                        "id": "text_title",
+                        "label": "Title",
+                        "default" : "Oxygen concentrator model KTS-5000"
+                    },
+                    {
+                        "type" : "collection",
+                        "id" : "collection",
+                        "label" : {
+                        "en" : "Collection"
+                        }
                     }
-
                 ]
             }
         ],
