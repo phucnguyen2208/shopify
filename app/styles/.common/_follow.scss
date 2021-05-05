@@ -205,9 +205,11 @@
                 color: #103178;
             }
         }
-        .border:nth-child(2) {
-            border-left: 1px solid #F0F2F5;
+        .border {
             border-right: 1px solid #F0F2F5;
+        }
+        .border:last-child {
+            border-right: none;
         }
     }
 }

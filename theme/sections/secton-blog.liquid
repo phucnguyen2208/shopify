@@ -1,0 +1,67 @@
+
+<div class="section-blog">
+    <div class="container">
+        <h2>From the blog</h2>
+        <div class="blog">
+            <div class="blog-item">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+                <div class="tag"></div>
+                <div class="text">New special offer for customers who have been with us for 10 years</div>
+                <div class="organization">
+                    <div class="time">May 18, 2020</div>
+                    <div class="author">Thomas Carlson</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% schema %}
+
+    {
+        "name": "Blog",
+        "tag": "section",
+        "settings" : [
+            {
+                "type" :"header",
+                "content": "Custom information"
+            },
+            {
+                "type" : "text",
+                "id" : "title",
+                "label" : {
+                  "en" : "Title"
+                },
+                "default" : "From the blog"
+            }
+        ],
+        "blocks":[
+            {
+                "type": "item-category",
+                "name": "Item Category",
+                "settings":[
+                    {
+                        "type" : "image_picker",
+                        "id" : "image",
+                        "label" : {
+                          "en" : "Image Logo"
+                        }
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Advanced layout",
+                "name": "Blog section"
+            }
+        ]
+    }
+
+{% endschema %}

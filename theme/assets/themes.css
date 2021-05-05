@@ -2469,10 +2469,11 @@ b {
   padding: 2px 10px; }
 
 .product-tab .container .carouselHolder .tab-carousel .carousel-cell .content h3 {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 23px;
   color: #103178;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  width: 197px; }
 
 .product-tab .container .carouselHolder .tab-carousel .carousel-cell .content .price {
   line-height: 1.1;
@@ -2754,9 +2755,11 @@ b {
   line-height: 22px;
   color: #103178; }
 
-.section-point .container .border:nth-child(2) {
-  border-left: 1px solid #f0f2f5;
+.section-point .container .border {
   border-right: 1px solid #f0f2f5; }
+
+.section-point .container .border:last-child {
+  border-right: none; }
 
 body {
   position: relative;

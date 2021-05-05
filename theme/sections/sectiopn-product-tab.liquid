@@ -27,11 +27,11 @@
                                             -%}
                                             <div class="carousel-cell">
                                                 <div class="product-img">
-                                                    <img src="{{ items.settings.img | img_url :'197x197' }}" alt="">
+                                                    <img src="{{ item | img_url :'197x197' }}" alt="">
                                                 </div>
                                                 <div class="content">
                                                     <span>{{ items.settings.text_sale }}</span>
-                                                    <h3>{{ items.settings.text_title }}</h3>
+                                                    <h3>{{ item.title }}</h3>
                                                     <div class="price">
                                                         <div class="new-price">{{ first_available_variant.price | money }}</div>
                                                         <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
@@ -71,11 +71,11 @@
         for (i = 0; i < navElement.length; i++) {
             let nav = navElement[i];
             nav.addEventListener('click', function(e){
-                var id = this.id.slice(4);
+                //var id = this.id.slice(4);
 
                 navElement.forEach((nav) => {
                     nav.classList.remove('selected');
-                })
+                });
 
                 if (e.target){
                     e.target.classList.add('selected');
@@ -91,9 +91,7 @@
 
 
   	window.addEventListener('DOMContentLoaded',function(){
-        {%- if section.blocks.size > 0 -%}
-        carousel();
-        {%- endif -%}
+        {%- if section.blocks.size > 0 -%}carousel();{%- endif -%}
   	})
 </script>
 
@@ -147,12 +145,6 @@
                         "id": "text_sale",
                         "label": "Sale",
                         "default" : "sale"
-                    },
-                    {
-                        "type": "text",
-                        "id": "text_title",
-                        "label": "Title",
-                        "default" : "Oxygen concentrator model KTS-5000"
                     },
                     {
                         "type" : "collection",
