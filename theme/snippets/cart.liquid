@@ -2,5 +2,8 @@
 <div class="cart">
   <a href=""><i class="fas fa-user"></i></a>
   <a href=""><i class="far fa-heart"></i></a>
-  <a href=""><i class="fas fa-shopping-cart"></i></a>
+  <a href="{{ routes.cart_url }}">
+    <i class="fas fa-shopping-cart"></i>
+    <span>{{ cart.item_count }}</span>
+  </a>
 </div>

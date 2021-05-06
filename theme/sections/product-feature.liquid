@@ -16,7 +16,7 @@
                     <div class="grid-item">
                         <a href="">
                             <div class="image">
-                                <img src="{{ block.settings.image | img_url : '197x197' }}" alt="">
+                                <img src="{{ item | img_url : '197x197' }}" alt="">
                             </div>
                             <div class="content">
 
@@ -30,7 +30,7 @@
                                     <span class="new">{{block.settings.new}}</span>
                                 {%- endif -%}
 
-                                <h3>{{block.settings.title}}</h3>
+                                <h3>{{item.title}}</h3>
                                 <div class="price">
                                     <div class="new-price">{{ first_available_variant.price | money }}</div>
                                     <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
@@ -78,15 +78,8 @@
 
       {
           "type": "header",
-          "name": "Image",
+          "name": "Product feature",
           "settings": [
-                {
-                    "type": "image_picker",
-                    "id" : "image",
-                    "label" : {
-                        "en" : "Image"
-                    }
-                },
                 {
                     "type" : "text",
                     "id" : "sale",
@@ -129,14 +122,6 @@
                             "value": "new", "label": "New"
                         }
                     ]
-                },
-                {
-                  "type" : "text",
-                  "id" : "title",
-                  "label" : {
-                    "en" : "Title"
-                  },
-                  "default" : "3-layer mask with an elastic band (1 piece)"
                 },
                 {
                   "type" : "collection",

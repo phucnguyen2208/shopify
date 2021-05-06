@@ -11,6 +11,9 @@
             color: #103178;
             margin-bottom: 30px;
         }
+        .controls {
+            display: none;
+        }
     }
 
 }
@@ -210,6 +213,56 @@
         }
         .border:last-child {
             border-right: none;
+        }
+    }
+}
+
+
+
+
+
+
+
+.section-blog {
+    margin-bottom: 80px;
+    .container {
+        h2 {
+            font-weight: 600;
+            font-size: 25px;
+            line-height: 120%;
+            color: #103178;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .blog {
+            &-item {
+                .text {
+                    font-weight: 500;
+                    font-size: 21px;
+                    line-height: 130%;
+                    color: #103178;
+                    margin: 20px 0 10px;
+                }
+                .organization {
+                    display: flex;
+                    align-items: center;
+                    .time {
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: #5B6C8F;
+                        margin-right: 15px;
+                    }
+                    .author {
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: #5B6C8F;
+                    }
+                }
+            }
+        }
+        .controls {
+            display: none;
         }
     }
 }

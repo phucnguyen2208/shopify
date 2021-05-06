@@ -1926,7 +1926,22 @@ b {
 
 .section-header .header-content .container .cart a {
   padding-left: 25px;
-  padding-right: 10px; }
+  padding-right: 10px;
+  display: flex;
+  position: relative; }
+
+.section-header .header-content .container .cart a span {
+  width: 22px;
+  height: 22px;
+  background: #103178;
+  border-radius: 50px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -13px;
+  right: -3px; }
 
 .section-header .navigation {
   height: 60px; }
@@ -2448,10 +2463,14 @@ b {
 .product-tab .container .nav .navElement.selected {
   text-decoration: underline; }
 
+.product-tab .container .carouselHolder .tab-carousel {
+  display: flex; }
+
 .product-tab .container .carouselHolder .tab-carousel .carousel-cell {
   border: 1px solid #f0f2f5;
   padding: 20px 25px;
-  position: relative; }
+  position: relative;
+  width: 20%; }
 
 .product-tab .container .carouselHolder .tab-carousel .carousel-cell .content {
   margin-top: 15px; }
@@ -2472,8 +2491,7 @@ b {
   font-size: 17px;
   line-height: 23px;
   color: #103178;
-  margin-bottom: 15px;
-  width: 197px; }
+  margin-bottom: 15px; }
 
 .product-tab .container .carouselHolder .tab-carousel .carousel-cell .content .price {
   line-height: 1.1;
@@ -2616,6 +2634,9 @@ b {
   line-height: 120%;
   color: #103178;
   margin-bottom: 30px; }
+
+.section-follow .container .controls {
+  display: none; }
 
 .section-connect {
   margin: 80px 0;
@@ -2760,6 +2781,43 @@ b {
 
 .section-point .container .border:last-child {
   border-right: none; }
+
+.section-blog {
+  margin-bottom: 80px; }
+
+.section-blog .container h2 {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 120%;
+  color: #103178;
+  text-align: center;
+  margin-bottom: 30px; }
+
+.section-blog .container .blog-item .text {
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 130%;
+  color: #103178;
+  margin: 20px 0 10px; }
+
+.section-blog .container .blog-item .organization {
+  display: flex;
+  align-items: center; }
+
+.section-blog .container .blog-item .organization .time {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #5b6c8f;
+  margin-right: 15px; }
+
+.section-blog .container .blog-item .organization .author {
+  font-size: 14px;
+  line-height: 20px;
+  color: #5b6c8f; }
+
+.section-blog .container .controls {
+  display: none; }
 
 body {
   position: relative;

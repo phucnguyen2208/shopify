@@ -22,13 +22,15 @@
                         assign variant_first = item.variants | first
                         assign first_available_variant = item.first_available_variant | default: variant_first
                     -%}
-                        <a class="slider-item product-item">
+                        <div class="slider-item product-item">
                             <div class="product-img">
-                                <img src="{{ block.settings.image | img_url : '197x197' }}" alt="">
+                                <a href="{{item.url}}">
+                                    <img src="{{ item | img_url : '197x197' }}" alt="">
+                                </a>
                             </div>
                             <div class="content">
                                 <span>{{block.settings.sale}}</span>
-                                <h3>{{block.settings.title}}</h3>
+                                <h3>{{item.title}}</h3>
                                 <div class="price">
                                     <div class="new-price">{{ first_available_variant.price | money }}</div>
                                     <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
@@ -41,7 +43,7 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                 {%- endfor -%}
             {%- endfor -%}
         </div>
@@ -76,7 +78,7 @@
         },
 
         768: {
-            items: 4,
+            items: 5,
         }
     }
 
@@ -111,15 +113,8 @@
 
         {
             "type": "header",
-            "name": "Image",
+            "name": "Product",
             "settings": [
-                {
-                    "type": "image_picker",
-                    "id" : "image",
-                    "label" : {
-                        "en" : "Banner"
-                    }
-                },
                 {
                     "type" : "text",
                     "id" : "sale",
@@ -127,14 +122,6 @@
                       "en" : "Sale"
                     },
                     "default" : "Sale"
-                },
-                {
-                    "type" : "text",
-                    "id" : "title",
-                    "label" : {
-                      "en" : "Title"
-                    },
-                    "default" : "Extractor used to remove teeth"
                 },
                 {
                     "type" : "collection",

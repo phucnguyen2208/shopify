@@ -31,10 +31,12 @@
         }
         .carouselHolder {
             .tab-carousel {
+                display: flex;
                 .carousel-cell {
                     border: 1px solid #F0F2F5;
                     padding: 20px 25px;
                     position: relative;
+                    width: 20%;
                     .content {
                         margin-top: 15px;
                         span {
@@ -54,7 +56,6 @@
                             line-height: 23px;
                             color: #103178;
                             margin-bottom: 15px;
-                            width: 197px;
                         }
                         .price {
                             line-height: 1.1;

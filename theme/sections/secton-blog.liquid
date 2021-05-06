@@ -1,22 +1,82 @@
 
 <div class="section-blog">
     <div class="container">
-        <h2>From the blog</h2>
-        <div class="blog">
-            <div class="blog-item">
-                <div class="image">
-                    <img src="" alt="">
-                </div>
-                <div class="tag"></div>
-                <div class="text">New special offer for customers who have been with us for 10 years</div>
-                <div class="organization">
-                    <div class="time">May 18, 2020</div>
-                    <div class="author">Thomas Carlson</div>
-                </div>
-            </div>
+    {%- for block in section.blocks -%}
+        <h2>{{section.settings.title}}</h2>
+
+        <ul class="controls" id="customize-controls-{{section.id}}" aria-label="Carousel Navigation" tabindex="0">
+            <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </li>
+            <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-right fa-5x"></i>
+            </li>
+        </ul>
+
+        <div class="blog my-slider-{{section.id}}">
+            {% assign blog = blogs[block.settings.blog] %}
+            {%- for item in blog.articles -%}
+                <a href="{{ item.url }}">
+                    <div class="blog-item slider-item">
+                        <div class="image">
+                            <img src="{{ item.image | img_url:'master' }}" alt="">
+                        </div>
+                        <div class="tag"></div>
+                        <div class="text">{{item.title}}</div>
+                        <div class="organization">
+                            <div class="time">{{item.created_at}}</div>
+                            <div class="author">{{item.author}}</div>
+                        </div>
+                    </div>
+                </a>
+            {%- endfor -%}
         </div>
+    {%- endfor -%}
+
     </div>
 </div>
+
+
+
+
+
+
+<script>
+
+(function() {
+     const slider = tns({
+    container: '.my-slider-{{section.id}}',
+    loop: true,
+    items: 3,
+    gutter: 32,
+    slideBy: 'page',
+    autoplay: false,
+    speed: 400,
+    autoplayButtonOutput: false,
+    mouseDrag: true,
+    nav: true,
+    navPosition: "bottom",
+    controlsContainer: "#customize-controls-{{section.id}}",
+    responsive: {
+        320: {
+            items: 2,
+        },
+        375: {
+            items: 2,
+        },
+
+        768: {
+            items: 3,
+        }
+    }
+
+  });
+})();
+
+
+</script>
+
+
 
 
 
@@ -43,14 +103,14 @@
         ],
         "blocks":[
             {
-                "type": "item-category",
-                "name": "Item Category",
+                "type": "item-blog",
+                "name": "Item Blog",
                 "settings":[
                     {
-                        "type" : "image_picker",
-                        "id" : "image",
+                        "type" : "blog",
+                        "id" : "blog",
                         "label" : {
-                          "en" : "Image Logo"
+                          "en" : "Blog"
                         }
                     }
                 ]
