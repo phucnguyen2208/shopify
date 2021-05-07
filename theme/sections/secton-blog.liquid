@@ -21,7 +21,7 @@
                         <div class="image">
                             <img src="{{ item.image | img_url:'master' }}" alt="">
                         </div>
-                        {%- for tag in blog.tags -%}
+                        {%- for tag in item.tags -%}
                              <div class="tag"><span>{{ tag }}</span></div>
                         {%- endfor -%}
 
