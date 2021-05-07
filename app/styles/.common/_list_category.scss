@@ -22,4 +22,28 @@
             }
         }
     }
+
+
+    @include desktop {
+
+	}
+    @include tablet {
+
+	}
+    @include mobile {
+        .container {
+            .row {
+                .col-md-2 {
+                    flex-basis: 50%;
+                    margin-bottom: 25px;
+                    h2 {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+	}
+    @include mobile-xxs {
+
+	}
 }

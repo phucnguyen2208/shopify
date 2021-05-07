@@ -28,6 +28,7 @@
                                     <img src="{{ item | img_url : '197x197' }}" alt="">
                                 </a>
                             </div>
+                            <div class="add-cart">{{block.settings.add_cart}}</div>
                             <div class="content">
                                 <span>{{block.settings.sale}}</span>
                                 <h3>{{item.title}}</h3>
@@ -123,6 +124,14 @@
                     },
                     "default" : "Sale"
                 },
+                {
+                    "type" : "text",
+                    "id" : "add_cart",
+                    "label" : {
+                      "en" : "Add Cart"
+                    },
+                    "default" : "Add to cart"
+                }
                 {
                     "type" : "collection",
                     "id" : "collection",

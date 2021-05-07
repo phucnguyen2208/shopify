@@ -330,7 +330,8 @@
   margin: 0 0 15px; }
 
 .form-account .form-control input {
-  width: 100%; }
+  width: 100%;
+  border: 1px solid; }
 
 @media (max-width: 767px) {
   .customer-block#customerRegister {

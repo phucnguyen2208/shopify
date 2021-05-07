@@ -197,7 +197,6 @@
         .wallet , .box , .delivery {
             display: flex;
             align-items: center;
-            padding: 10px 70px;
             i {
                 margin-right: 13px;
             }
@@ -210,11 +209,40 @@
         }
         .border {
             border-right: 1px solid #F0F2F5;
+            padding: 10px 70px;
         }
         .border:last-child {
             border-right: none;
         }
     }
+
+
+
+    @include desktop {
+        .container {
+            .border {
+                padding: 10px 60px;
+            }
+        }
+	}
+    @include tablet {
+        .container {
+            .border {
+                padding: 10px 20px;
+            }
+        }
+	}
+    @include mobile {
+        .container {
+            flex-direction: column;
+            .border {
+                border-right:none;
+            }
+        }
+	}
+    @include mobile-xxs {
+
+	}
 }
 
 

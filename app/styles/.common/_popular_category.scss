@@ -14,8 +14,9 @@
         .popular {
             display: flex;
             &-item {
-                width: 150px;
+                flex-basis: 14.2857%;
                 height: 130px;
+                flex-wrap: wrap;
                 .img {
                     padding: 27px;
                     width: 90px;
@@ -52,4 +53,19 @@
             cursor: pointer;
         }
     }
+
+
+
+    @include desktop {
+
+	}
+    @include tablet {
+
+	}
+    @include mobile {
+
+	}
+    @include mobile-xxs {
+
+	}
 }

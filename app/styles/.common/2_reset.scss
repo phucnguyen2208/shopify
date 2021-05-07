@@ -325,7 +325,7 @@ textarea {
     }
 }
 img {
-    max-width: 100%;
+    width: 100%;
     &.img-lazy {
         @include ab(0, 0, n, n);
     }

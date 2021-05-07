@@ -32,11 +32,12 @@
         .carouselHolder {
             .tab-carousel {
                 display: flex;
+                flex-wrap: wrap;
                 .carousel-cell {
                     border: 1px solid #F0F2F5;
                     padding: 20px 25px;
                     position: relative;
-                    width: 20%;
+                    flex-basis: 20%;
                     .content {
                         margin-top: 15px;
                         span {
@@ -79,6 +80,67 @@
             }
         }
     }
+
+
+
+
+    @include desktop {
+
+	}
+    @include tablet {
+        .container {
+            h2 {
+                font-size: 30px;
+            }
+            .nav {
+                .navElement {
+                    margin: 0 30px;
+                    font-size: 20px;
+                }
+            }
+            .carouselHolder {
+                .tab-carousel {
+                    .carousel-cell {
+                        flex-basis: 33.33%;
+                    }
+                }
+            }
+        }
+	}
+    @include mobile {
+        .container {
+            .nav {
+                .navElement {
+                    margin: 0 16px;
+                    font-size: 14px;
+                }
+            }
+            .carouselHolder {
+                .tab-carousel {
+                    .carousel-cell {
+                        flex-basis: 50%;
+                    }
+                }
+            }
+        }
+	}
+    @include mobile-xxs {
+        .container {
+            .nav {
+                .navElement {
+                    margin: 0 10px;
+                    font-size: 14px;
+                }
+            }
+            .carouselHolder {
+                .tab-carousel {
+                    .carousel-cell {
+                        flex-basis: 100%;
+                    }
+                }
+            }
+        }
+	}
 }
 
 .main-carousel:not(.active){
