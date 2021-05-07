@@ -21,10 +21,11 @@
                         <div class="image">
                             <img src="{{ item.image | img_url:'master' }}" alt="">
                         </div>
-                        {%- for tag in item.tags -%}
-                             <div class="tag"><span>{{ tag }}</span></div>
-                        {%- endfor -%}
-
+                        <div class="tag">
+                            {%- for tag in item.tags -%}
+                                <span>{{ tag }}</span>
+                            {%- endfor -%}
+                        </div>
                         <div class="text">{{item.title}}</div>
                         <div class="organization">
                             <div class="time">{{item.created_at}}</div>
