@@ -6,7 +6,7 @@
         {%- endif -%}
         <div class="list-item">
             {%- for block in section.blocks -%}
-                {%- assign collection = collections[block.settings.collection] -%}
+                {%- assign collection = collections[section.settings.collection] -%}
                 {%- for item in collection.products -%}
                     {%- liquid
                         assign variant_first = item.variants | first
@@ -14,20 +14,16 @@
                     -%}
 
                     <div class="grid-item">
-                        <a href="">
                             <div class="image">
                                 <img src="{{ item | img_url : '197x197' }}" alt="">
                             </div>
+                            <button class="add-card">{{block.settings.add_cart}}</button>
                             <div class="content">
 
-                                {%- if block.settings.information_status == 'sale' -%}
-                                    <span class="sale">{{block.settings.sale}}</span>
-
-                                {%- elsif block.settings.information_status == 'hot' -%}
-                                    <span class="hot">{{block.settings.hot}}</span>
-
-                                {%- elsif block.settings.information_status == 'new' -%}
-                                    <span class="new">{{block.settings.new}}</span>
+                                {%- if item.compare_at_price_max > item.price -%}
+                                    <span>
+                                        -{{ item.compare_at_price | minus: item.price | times: 100.0 | divided_by: item.compare_at_price | round }}%
+                                    </span>
                                 {%- endif -%}
 
                                 <h3>{{item.title}}</h3>
@@ -43,7 +39,6 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                             </div>
-                        </a>
                     </div>
 
                 {%- endfor -%}
@@ -61,18 +56,25 @@
   "name": "Product feature page",
   "tag": "section",
   "settings": [
-      {
-          "type": "header",
-          "content": "Settings"
-      },
-      {
-          "type" : "text",
-          "id" : "title_product",
-          "label" : {
-              "en" : "Title"
-          },
-          "default" : "Featured products"
-      }
+        {
+            "type": "header",
+            "content": "Settings"
+        },
+        {
+            "type" : "text",
+            "id" : "title_product",
+            "label" : {
+                "en" : "Title"
+            },
+            "default" : "Featured products"
+        },
+        {
+            "type" : "collection",
+            "id" : "collection",
+            "label" : {
+                "en" : "Collection"
+            }
+        }
   ],
   "blocks": [
 
@@ -82,54 +84,12 @@
           "settings": [
                 {
                     "type" : "text",
-                    "id" : "sale",
+                    "id" : "add_cart",
                     "label" : {
-                        "en" : "Sale"
+                      "en" : "Add Cart"
                     },
-                    "default" : "sale"
-                },
-                {
-                    "type" : "text",
-                    "id" : "hot",
-                    "label" : {
-                        "en" : "Hot"
-                    },
-                    "default" : "hot"
-                },
-                {
-                    "type" : "text",
-                    "id" : "new",
-                    "label" : {
-                        "en" : "New"
-                    },
-                    "default" : "new"
-                },
-                {
-                    "type" : "select",
-                    "id" : "information_status",
-                    "label": "Status",
-                    "options": [
-                        {
-                            "value": "none", "label": "None"
-                        },
-                        {
-                            "value": "sale", "label": "Sale"
-                        },
-                        {
-                            "value": "hot", "label": "Hot"
-                        },
-                        {
-                            "value": "new", "label": "New"
-                        }
-                    ]
-                },
-                {
-                  "type" : "collection",
-                  "id" : "collection",
-                  "label" : {
-                    "en" : "Collection"
-                  }
-              }
+                    "default" : "Add to cart"
+                }
             ]
         }
     ],

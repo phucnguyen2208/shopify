@@ -28,35 +28,7 @@
             {%- for block in section.blocks -%}
                 {%- assign collection = collections[block.settings.collection] -%}
                 {%- for item in collection.products -%}
-                    {%- liquid
-                        assign variant_first = item.variants | first
-                        assign first_available_variant = item.first_available_variant | default: variant_first
-                    -%}
-                    <a class="slider-item product-item">
-                        <div class="product-img">
-                            <img src="{{ item | img_url : '197x197' }}" alt="">
-                        </div>
-                        <div class="content">
-                            <span>{{block.settings.sale}}</span>
-                            <h3>{{item.title}}</h3>
-                            <div class="price">
-                                <div class="new-price">{{ first_available_variant.price | money }}</div>
-                                <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
-                            </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="line"></div>
-                            <div class="pcs">
-                                <p class="text">{{block.settings.pcs}}</p>
-                                <p class="number">{{block.settings.number}}</p>
-                            </div>
-                        </div>
-                    </a>
+                    {%- render 'product', block: block , item: item, idSection: {{section.id}} , idTagSale : {{section.id}} -%}
                 {%- endfor -%}
             {%- endfor -%}
         </div>
@@ -183,6 +155,14 @@
                   },
                   "default" : "10"
               },
+              {
+                    "type" : "text",
+                    "id" : "add_cart",
+                    "label" : {
+                      "en" : "Add Cart"
+                    },
+                    "default" : "Add to cart"
+                },
               {
                   "type" : "collection",
                   "id" : "collection",

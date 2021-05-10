@@ -17,8 +17,7 @@
     "_product_feature",
     "_list_category",
     "_popular_category",
-    "_follow",
-    "_blog"
+    "_follow"
   ],
   "homepage": [
     "1_functions",

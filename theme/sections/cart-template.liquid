@@ -75,7 +75,7 @@
 
                         <div class="qty-select">
                           <input class="hide" type="text" name="updates[]" id="updates_{{ line.id }}" value="{{ line.quantity }}" pattern="[0-9]+" data-item-key="{{ line.key }}" min="1"{% if line.variant.inventory_policy != 'continue' %} max="{{line.variant.inventory_quantity}}"{% endif %} data-item-quantity/>
-                          
+
                           <select class="qty-select-change" data-item-quantity>
                             {%- for i in (1..10) -%}
                               {%- if i > line.variant.inventory_quantity -%}{%- break -%}{%- endif -%}

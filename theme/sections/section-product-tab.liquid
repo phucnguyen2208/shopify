@@ -29,8 +29,13 @@
                                                 <div class="product-img">
                                                     <img src="{{ item | img_url :'197x197' }}" alt="">
                                                 </div>
+                                                <button class="add-card">{{items.settings.add_cart}}</button>
                                                 <div class="content">
-                                                    <span>{{ items.settings.text_sale }}</span>
+                                                    {%- if item.compare_at_price_max > item.price -%}
+                                                        <span>
+                                                            -{{ item.compare_at_price | minus: item.price | times: 100.0 | divided_by: item.compare_at_price | round }}%
+                                                        </span>
+                                                    {%- endif -%}
                                                     <h3>{{ item.title }}</h3>
                                                     <div class="price">
                                                         <div class="new-price">{{ first_available_variant.price | money }}</div>
@@ -145,6 +150,14 @@
                         "id": "text_sale",
                         "label": "Sale",
                         "default" : "sale"
+                    },
+                    {
+                        "type" : "text",
+                        "id" : "add_cart",
+                        "label" : {
+                            "en" : "Add Cart"
+                        },
+                        "default" : "Add to cart"
                     },
                     {
                         "type" : "collection",

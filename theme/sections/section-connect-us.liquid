@@ -2,21 +2,15 @@
 <div class="section-connect">
     <div class="container">
         <div class="background" style="background:url({{section.settings.background | img_url : 'master'}})">
-            {%- for block in section.blocks -%}
-                {%- case block.type -%}
-                    {%- when 'block-title' -%}
-                        {%- if block.settings.text_title != blank -%}
-                            <h2>{{block.settings.text_title}}</h2>
-                        {%- endif -%}
 
-                    {%- when 'block-email' -%}
-                        <div class="connect">
-                            <input type="text" placeholder="Your e-mail address">
-                            <a href="">{{block.settings.text_email}}</a>
-                        </div>
+            {%- if section.settings.text_title != blank -%}
+                <h2>{{section.settings.text_title}}</h2>
+            {%- endif -%}
 
-                {%- endcase -%}
-            {%- endfor -%}
+            <div class="connect">
+                <input type="text" placeholder="Your e-mail address">
+                <a href="">{{section.settings.text_email}}</a>
+            </div>
 
         </div>
     </div>
@@ -42,36 +36,25 @@
                 "label" : {
                     "en" : "Image Background"
                 }
+            },
+            {
+                "type": "text",
+                "id" : "text_title",
+                "label" : {
+                    "en" : "Text"
+                }
+            },
+            {
+                "type": "text",
+                "id" : "text_email",
+                "label" : {
+                    "en" : "Text Email"
+                },
+                "default" : "Subscribe"
             }
         ],
         "blocks":[
-            {
-                "type": "block-title",
-                "name": "Block Title",
-                "settings":[
-                    {
-                        "type": "text",
-                        "id" : "text_title",
-                        "label" : {
-                            "en" : "Text"
-                        }
-                    }
-                ]
-            },
-            {
-                "type" : "block-email",
-                "name" : "Block Email",
-                "settings" : [
-                    {
-                        "type": "text",
-                        "id" : "text_email",
-                        "label" : {
-                          "en" : "Text Email"
-                        },
-                        "default" : "Subscribe"
-                    }
-                ]
-            }
+
         ],
         "presets": [
             {

@@ -20,11 +20,14 @@
                 padding: 20px 25px;
                 position: relative;
                 border: 1px solid #F0F2F5;
-                // .image{
-                //     min-height: 197px;
-                // }
+                .image{
+                    min-height: 197px;
+                }
+                .add-card {
+                    margin-bottom: 15px;
+                }
                 .content {
-                    margin-top: 15px;
+                    //margin-top: 15px;
                     span {
                         position: absolute;
                         top: 20px;
