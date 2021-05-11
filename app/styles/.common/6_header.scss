@@ -132,6 +132,14 @@
                 align-items: center;
                 margin-right: 13px;
                 height: 100%;
+                .icon-hamburger {
+                    width: 50px;
+                    height: 30px;
+                }
+                .icon-close {
+                    width: 25px;
+                    display: none;
+                }
             }
             .nav {
                 height: 100%;

@@ -1960,6 +1960,14 @@ b {
   margin-right: 13px;
   height: 100%; }
 
+.section-header .navigation .container .hamburger .icon-hamburger {
+  width: 50px;
+  height: 30px; }
+
+.section-header .navigation .container .hamburger .icon-close {
+  width: 25px;
+  display: none; }
+
 .section-header .navigation .container .nav {
   height: 100%;
   flex: 1; }
@@ -3375,7 +3383,7 @@ b {
   .section-product .container .controls .next {
     right: 0; } }
 
-.add-card {
+.add-cart {
   width: 100%;
   background: #ff9923;
   border-radius: 42px;
@@ -3607,6 +3615,14 @@ b {
 .section-blog .container .controls {
   display: none; }
 
+@media screen and (max-width: 991px) and (min-height: 500px) {
+  .section-blog .container .blog-item .text {
+    font-size: 16px; } }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .section-blog .container .blog-item .tag {
+    display: none; } }
+
 body {
   position: relative;
   height: 100%;
@@ -3809,7 +3825,7 @@ body {
 .product-feature .container .list-item .grid-item .image {
   min-height: 197px; }
 
-.product-feature .container .list-item .grid-item .add-card {
+.product-feature .container .list-item .grid-item .add-cart {
   margin-bottom: 15px; }
 
 .product-feature .container .list-item .grid-item .content span {
@@ -3858,6 +3874,10 @@ body {
     font-size: 30px; }
   .product-feature .container .list-item {
     grid-template-columns: auto auto; } }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .product-feature .container .list-item .grid-item .image {
+    min-height: 135px; } }
 
 .list-category {
   margin: 80px 0; }
@@ -3933,3 +3953,18 @@ body {
   justify-content: center;
   margin: 30px auto auto;
   cursor: pointer; }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .section-popular .container .popular {
+    display: flex;
+    flex-wrap: wrap; }
+  .section-popular .container .popular-item {
+    flex-basis: 33.33333333%;
+    margin-bottom: 15px; }
+  .section-popular .container .popular-item .img {
+    width: 80px;
+    height: 80px; }
+  .section-popular .container .popular-item p {
+    font-size: 15px; }
+  .section-popular .container .show-all {
+    margin: 0 auto; } }

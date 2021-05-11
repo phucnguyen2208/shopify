@@ -14,31 +14,31 @@
                     -%}
 
                     <div class="grid-item">
-                            <div class="image">
-                                <img src="{{ item | img_url : '197x197' }}" alt="">
-                            </div>
-                            <button class="add-card">{{block.settings.add_cart}}</button>
-                            <div class="content">
+                        <div class="image">
+                            <img src="{{ item | img_url : '197x197' }}" alt="">
+                        </div>
+                        <button class="add-cart">{{block.settings.add_cart}}</button>
+                        <div class="content">
 
-                                {%- if item.compare_at_price_max > item.price -%}
-                                    <span>
-                                        -{{ item.compare_at_price | minus: item.price | times: 100.0 | divided_by: item.compare_at_price | round }}%
-                                    </span>
-                                {%- endif -%}
+                            {%- if item.compare_at_price_max > item.price -%}
+                                <span>
+                                    -{{ item.compare_at_price | minus: item.price | times: 100.0 | divided_by: item.compare_at_price | round }}%
+                                </span>
+                            {%- endif -%}
 
-                                <h3>{{item.title}}</h3>
-                                <div class="price">
-                                    <div class="new-price">{{ first_available_variant.price | money }}</div>
-                                    <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
-                                </div>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
+                            <h3>{{item.title}}</h3>
+                            <div class="price">
+                                <div class="new-price">{{ first_available_variant.price | money }}</div>
+                                <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
                             </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
 
                 {%- endfor -%}

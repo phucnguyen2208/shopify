@@ -8,7 +8,7 @@ type:
 <header>
  <div class="topbar">
     {% for block in section.blocks %}
-    {% case %}
+    {% case block.type %}
       {% when 'topbar_text' %}
           <div class="topbar-column">
               {{block.settings.text}}
@@ -28,34 +28,55 @@ type:
 
 
 
-//cart quantity
-$(document).ready(function(){
-  var cartCount = {{ cart.item_count }};
-  $(".add-to-cart").on("click",function(){
-    jQuery.getJSON("/cart.js",function(){
-      cartCount++;
-      $(".cart-count").html(cartCount)
-    })
-  })
+
+
+
+
+jQuery.ajax({
+  type: 'POST',
+  url: '/cart/change.js',
+  data: { quantity: quantity, id: id },
+  dataType: 'json',
+  success: function(data) {
+    $(".cart-count").html(data.item_count);
+  }
+});
+theme.cart.changeItem(id, quantity);
+},
+
+
+
+
+
+
+
+$('.add-cart').click(function() {
+  var $quantity = $(this).parent('.product-item').siblings('.input-wrapper').children('.quantity');
+  var qty = $quantity.val();
+  var varient = $quantity.data('id');
+
+  var data = { updates: {} };
+  data.updates[varient] = qty;
+
+  jQuery.ajax({
+    type: 'POST',
+    url: '/cart/update.js',
+    data: { quantity: quantity, id: id },
+    dataType: 'json',
+    success: function(data) {
+        $("#cartCount").html(data.item_count);
+    }
+    });
+    cart.changeItem(id, quantity);
+    },
 });
 
 
 
 
 
-//cart quantity
-$(document).ready(function(){
-  $(".add-to-cart").on("click",function(){
-    jQuery.getJSON("/cart.js",function(cart){
-		cart.item_count++;
-      	$(".cart-count").html(cart.item_count)
-    })
-  })
-  jQuery.getJSON("/cart.js",function(cart){
-	cart.item_count++;
-    $(".cart-count").html(cart.item_count)
-  })
-});
+
+
 
 
 

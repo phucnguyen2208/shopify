@@ -4,61 +4,64 @@
     assign first_available_variant = item.first_available_variant | default: variant_first
 -%}
 
+<form onsubmit="addItemCart({{first_available_variant.id}}, 1); return false;" >
+    <div class="slider-item product-item">
+        <div class="product-img">
+            <a href="{{item.url}}">
+                <img src="{{ item | img_url : '197x197' }}" alt="">
+            </a>
+        </div>
+        <button type="submit" class="add-cart">{{block.settings.add_cart}}</button>
+        <div class="content">
 
-<div class="slider-item product-item">
-    <div class="product-img">
-        <a href="{{item.url}}">
-            <img src="{{ item | img_url : '197x197' }}" alt="">
-        </a>
-    </div>
-    <button class="add-card">{{block.settings.add_cart}}</button>
-    <div class="content">
-
-        {%- if idTag != blank -%}
-            <div class="tag">
-                {%- for tag in item.tags -%}
-                    {%- if item.compare_at_price_max > item.price -%}
-                        {%- if tag == 'Sale' -%}
-                            <span style="background:#FF9923;">{{ tag }}</span>
+            {%- if idTag != blank -%}
+                <div class="tag">
+                    {%- for tag in item.tags -%}
+                        {%- if item.compare_at_price_max > item.price -%}
+                            {%- if tag == 'Sale' -%}
+                                <span style="background:#FF9923;">{{ tag }}</span>
+                            {%- endif -%}
                         {%- endif -%}
-                    {%- endif -%}
-                    {%- if tag == 'Hot' -%}
-                        <span>{{ tag }}</span>
-                    {%- endif -%}
-                    {%- if tag == 'New' -%}
-                        <span style="background:#12A05C;">{{ tag }}</span>
-                    {%- endif -%}
-                {%- endfor -%}
-            </div>
-        {%- endif -%}
-
-        {%- if item.compare_at_price_max > item.price -%}
-            {%- if idTagSale != blank -%}
-                <span>
-                    -{{ item.compare_at_price | minus: item.price | times: 100.0 | divided_by: item.compare_at_price | round }}%
-                </span>
+                        {%- if tag == 'Hot' -%}
+                            <span>{{ tag }}</span>
+                        {%- endif -%}
+                        {%- if tag == 'New' -%}
+                            <span style="background:#12A05C;">{{ tag }}</span>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </div>
             {%- endif -%}
-        {%- endif -%}
 
-        <h3>{{item.title}}</h3>
-        <div class="price">
-            <div class="new-price">{{ first_available_variant.price | money }}</div>
-            <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
-        </div>
-        <div class="rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        {%- if idSection != blank -%}
-            <div class="line"></div>
-            <div class="pcs">
-                <p class="text">{{block.settings.pcs}}</p>
-                <p class="number">{{block.settings.number}}</p>
+            {%- if item.compare_at_price_max > item.price -%}
+                {%- if idTagSale != blank -%}
+                    <span>
+                        -{{ item.compare_at_price | minus: item.price | times: 100.0 | divided_by: item.compare_at_price | round }}%
+                    </span>
+                {%- endif -%}
+            {%- endif -%}
+
+            <h3>{{item.title}}</h3>
+            <div class="price">
+                <div class="new-price">{{ first_available_variant.price | money }}</div>
+                <div class="old-price">{{ first_available_variant.compare_at_price | money }}</div>
             </div>
-        {%- endif -%}
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            {%- if idSection != blank -%}
+                <div class="line"></div>
+                <div class="pcs">
+                    <p class="text">{{block.settings.pcs}}</p>
+                    <p class="number">{{first_available_variant.inventory_quantity}}</p>
+                </div>
+            {%- endif -%}
 
+        </div>
     </div>
-</div>
+</form>
+
+

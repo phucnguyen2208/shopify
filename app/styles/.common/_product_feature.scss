@@ -23,7 +23,7 @@
                 .image{
                     min-height: 197px;
                 }
-                .add-card {
+                .add-cart {
                     margin-bottom: 15px;
                 }
                 .content {
@@ -93,7 +93,15 @@
         }
 	}
 	@include mobile {
-
+        .container {
+            .list-item {
+                .grid-item {
+                    .image {
+                        min-height: 135px;
+                    }
+                }
+            }
+        }
 	}
 	// @include mobile-xxs {
 
