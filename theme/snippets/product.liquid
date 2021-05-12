@@ -4,7 +4,10 @@
     assign first_available_variant = item.first_available_variant | default: variant_first
 -%}
 
+
+
 <form onsubmit="addItemCart({{first_available_variant.id}}, 1); return false;" >
+    <input type="hidden" name="id" value="{{first_available_variant.id}}" />
     <div class="slider-item product-item">
         <div class="product-img">
             <a href="{{item.url}}">

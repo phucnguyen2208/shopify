@@ -1,19 +1,48 @@
+
+// Add cart
 async function addItemCart(id,quantity) {
-  return await fetch('/cart/update.js', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-          "mode": "cors"
-      },
-      body: JSON.stringify({
-        variantId:id,
-        quantity:quantity
-      })
-  })
-  .then(res => {
-     res.json();
-  })
-  .catch((error) => {
-      console.error('Error:', error);
-  });
+    fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id:id,
+            quantity:quantity
+        })
+    })
+    .then(res => {
+        return res.json();
+    })
+    .then(async function(){
+
+        document.getElementById("cartcount").innerHTML = (await updateCart()).item_count;
+    })
+    .catch((error) => {
+
+    });
+};
+
+
+async function updateCart() {
+    return fetch('/cart.js')
+    .then(response => {
+        response.json();
+    })
+    .then( data => console.log(data));
 }
+
+
+
+// Nav menu
+
+function navMenu() {
+    let menu = document.querySelector('.btmenu');
+    let nav = document.getElementsByClassName('nav');
+    console.log(menu);
+    menu.addEventListener('click', function() {
+        this.classList.toggle('clicked');
+    })
+}
+
+navMenu()

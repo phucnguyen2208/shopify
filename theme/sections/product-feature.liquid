@@ -12,7 +12,8 @@
                         assign variant_first = item.variants | first
                         assign first_available_variant = item.first_available_variant | default: variant_first
                     -%}
-
+                    <form onsubmit="addItemCart({{first_available_variant.id}}, 1); return false;" >
+                    <input type="hidden" name="id" value="{{first_available_variant.id}}" />
                     <div class="grid-item">
                         <div class="image">
                             <img src="{{ item | img_url : '197x197' }}" alt="">
@@ -40,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
                 {%- endfor -%}
             {%- endfor -%}
         </div>
