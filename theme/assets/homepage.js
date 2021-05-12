@@ -26,11 +26,13 @@ async function addItemCart(id,quantity) {
 
 async function updateCart() {
     return fetch('/cart.js')
-    .then(response => {
-        response.json();
-    })
-    .then( data => console.log(data));
+    .then(response =>
+        response.json()
+    )
+    .then( data => data );
 }
+
+
 
 
 
