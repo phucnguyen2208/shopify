@@ -8,7 +8,7 @@
             font-weight: 600;
             font-size: 25px;
             line-height: 120%;
-            color: #103178;
+            color: var(--main_color);
             margin-bottom: 30px;
         }
         .popular {
@@ -23,26 +23,26 @@
                     height: 90px;
                     margin: auto;
                     border-radius: 50%;
-                    background: #F0F2F5;
+                    background: var(--gray_color);
                     margin-bottom: 15px;
                 }
                 p {
                     font-weight: 600;
                     font-size: 17px;
                     line-height: 25px;
-                    color: #103178;
+                    color: var(--main_color);
                     text-align: center;
                 }
             }
         }
         .show-all {
             padding: 0px 18px;
-            border: 1px solid #F0F2F5;
+            border: 1px solid var(--gray_color);
             border-radius: 42px;
             font-weight: 600;
             font-size: 13px;
             line-height: 19px;
-            color: #103178;
+            color: var(--main_color);
             width: 86px;
             height: 26px;
             margin: auto;

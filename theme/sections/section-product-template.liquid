@@ -1,0 +1,130 @@
+
+<div class="section-product">
+    <div class="container">
+        {%- if section.settings.title_product != blank -%}
+            <h2>{{section.settings.title_product}}</h2>
+        {%- endif -%}
+
+        <ul class="controls" id="customize-controls-{{section.id}}" aria-label="Carousel Navigation" tabindex="0">
+            <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </li>
+            <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-right fa-5x"></i>
+            </li>
+        </ul>
+
+        <div class="my-slider-{{section.id}} list-product">
+            {%- for block in section.blocks -%}
+                {%- assign collection = collections[section.settings.collection] -%}
+                {%- for item in collection.products -%}
+                    {%- render 'product', block: block , item: item , idTag : {{section.id}} -%}
+                {%- endfor -%}
+            {%- endfor -%}
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<script>
+
+(function() {
+     const slider = tns({
+    container: '.my-slider-{{section.id}}',
+    loop: true,
+    items: 5,
+    slideBy: 'page',
+    autoplay: false,
+    speed: 400,
+    autoplayButtonOutput: false,
+    mouseDrag: true,
+    nav: true,
+    navPosition: "bottom",
+    controlsContainer: "#customize-controls-{{section.id}}",
+    responsive: {
+        320: {
+            items: 2,
+        },
+        375: {
+            items: 2,
+        },
+
+        768: {
+            items: 4,
+        },
+        1024: {
+            items: 5,
+        }
+    }
+
+  });
+})();
+
+</script>
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Product page",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Settings"
+        },
+        {
+            "type" : "text",
+            "id" : "title_product",
+            "label" : {
+                "en" : "Title"
+            },
+            "default" : "Latest products"
+        },
+        {
+            "type" : "collection",
+            "id" : "collection",
+            "label" : {
+                "en" : "Collection"
+            }
+        }
+    ],
+    "blocks": [
+
+        {
+            "type": "header",
+            "name": "Product",
+            "settings": [
+                {
+                    "type" : "text",
+                    "id" : "sale",
+                    "label" : {
+                      "en" : "Sale"
+                    },
+                    "default" : "Sale"
+                },
+                {
+                    "type" : "text",
+                    "id" : "add_cart",
+                    "label" : {
+                      "en" : "Add Cart"
+                    },
+                    "default" : "Add to cart"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Advanced layout",
+            "name": "Product section"
+        }
+    ]
+}
+{% endschema %}

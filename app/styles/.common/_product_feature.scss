@@ -9,7 +9,7 @@
             font-weight: 600;
             font-size: 40px;
             line-height: 120%;
-            color: #103178;
+            color: var(--main_color);
             text-align: center;
             margin-bottom: 30px;
         }
@@ -19,7 +19,7 @@
             .grid-item {
                 padding: 20px 25px;
                 position: relative;
-                border: 1px solid #F0F2F5;
+                border: 1px solid var(--gray_color);
                 .image{
                     min-height: 197px;
                 }
@@ -34,7 +34,7 @@
                         font-weight: bold;
                         font-size: 12px;
                         line-height: 17px;
-                        background: #FF9923;
+                        background: var(--bg-color);
                         border-radius: 42px;
                         padding: 0 10px;
                         color: white;
@@ -42,7 +42,7 @@
                     h3 {
                         font-size: 16px;
                         line-height: 23px;
-                        color: #103178;
+                        color: var(--main_color);
                         margin-bottom: 15px;
                     }
                     .price {
@@ -53,7 +53,7 @@
                         .new-price {
                             font-weight: 500;
                             font-size: 18px;
-                            color: #FF9923;
+                            color: var(--bg-color);
                             margin-right: 7px;
                         }
                         .old-price {
@@ -64,7 +64,7 @@
                     }
                     .rating {
                         i {
-                            color: #FF9923;
+                            color: var(--bg-color);
                         }
                     }
                 }
@@ -88,16 +88,22 @@
                 font-size: 30px;
             }
             .list-item {
-                grid-template-columns: auto auto;
+                grid-template-columns: auto auto auto;
             }
         }
 	}
 	@include mobile {
         .container {
             .list-item {
+                grid-template-columns: auto auto;
                 .grid-item {
                     .image {
                         min-height: 135px;
+                    }
+                    .content {
+                        h3 {
+                            height: 70px;
+                        }
                     }
                 }
             }

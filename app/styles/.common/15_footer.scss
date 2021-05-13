@@ -6,12 +6,12 @@
     .container {
         .footer-content {
             padding-bottom: 80px;
-            border-bottom: 1px solid #F0F2F5;
+            border-bottom: 1px solid var(--gray-color);
             h2 {
                 font-weight: 600;
                 font-size: 18px;
                 line-height: 110%;
-                color: #103178;
+                color: var(--main_color);
                 margin-bottom: 22px;
             }
             .list-item {
@@ -21,7 +21,7 @@
                         a {
                             font-size: 16px;
                             line-height: 30px;
-                            color: #103178;
+                            color: var(--main_color);
                         }
                     }
                 }
@@ -30,12 +30,12 @@
                 font-weight: 600;
                 font-size: 25px;
                 line-height: 36px;
-                color: #103178;
+                color: var(--main_color);
                 margin-bottom: 10px;
             }
             .contact {
                 background: #FFFFFF;
-                border: 1px solid #F0F2F5;
+                border: 1px solid var(--gray-color);
                 box-sizing: border-box;
                 border-radius: 42px;
                 padding: 5px 30px;
@@ -47,30 +47,30 @@
                 font-weight: 600;
                 font-size: 16px;
                 line-height: 23px;
-                color: #103178;
+                color: var(--main_color);
             }
             .col-md-4 p {
                 font-size: 14px;
                 line-height: 20px;
-                color: #5B6C8F;
+                color: var(--dark-gray);
             }
             .col-md-2 p {
                 font-size: 15px;
                 line-height: 23px;
-                color: #5B6C8F;
+                color: var(--dark-gray);
                 margin-bottom: 10px;
             }
             .showmap {
                 font-size: 14px;
                 line-height: 20px;
                 text-decoration-line: underline;
-                color: #5B6C8F;
+                color: var(--dark-gray);
             }
             .network {
                 margin-top: 30px;
                 a {
                     margin-right: 17px;
-                    color: #5B6C8F;
+                    color: var(--dark-gray);
                 }
             }
         }
@@ -79,7 +79,7 @@
             .copyright-content {
                 font-size: 16px;
                 line-height: 30px;
-                color: #103178;
+                color: var(--main_color);
             }
         }
     }

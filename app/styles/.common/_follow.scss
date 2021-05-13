@@ -8,7 +8,7 @@
             text-align: center;
             font-size: 25px;
             line-height: 120%;
-            color: #103178;
+            color: var(--main_color);
             margin-bottom: 30px;
         }
         .controls {
@@ -37,7 +37,7 @@
             font-weight: 600;
             font-size: 40px;
             line-height: 120%;
-            color: #103178;
+            color: var(--main_color);
             margin-bottom: 30px;
         }
         .connect {
@@ -48,7 +48,7 @@
                 width: 327px;
                 height: 46px;
                 padding: 0px 25px;
-                background: #F0F2F5;
+                background: var(--gray-color);
                 border-radius: 60px;
                 margin-right: 10px;
             }
@@ -58,7 +58,7 @@
                 font-size: 18px;
                 line-height: 26px;
                 color: #FFFFFF;
-                background: #FF9923;
+                background: var(--bg-color);
                 border-radius: 42px;
                 height: 46px;
 
@@ -125,10 +125,10 @@
             font-weight: 600;
             font-size: 40px;
             line-height: 120%;
-            color: #103178;
+            color: var(--main_color);
             margin-bottom: 30px;
             span {
-                color: #FF9923;
+                color: var(--bg-color);
             }
         }
         .content-review {
@@ -139,19 +139,19 @@
                 p {
                     font-size: 18px;
                     line-height: 26px;
-                    color: #103178;
+                    color: var(--main_color);
                     margin-bottom: 15px;
                 }
                 h3 {
                     font-weight: 600;
                     font-size: 13px;
                     line-height: 19px;
-                    color: #103178;
+                    color: var(--main_color);
                     margin-bottom: 15px;
                 }
                 .rating {
                     i {
-                        color: #FF9923;
+                        color: var(--bg-color);
                     }
                 }
             }
@@ -187,8 +187,8 @@
 
 
 .section-point {
-    border-bottom: 1px solid #F0F2F5;
-    border-top: 1px solid #F0F2F5;
+    border-bottom: 1px solid var(--gray-color);
+    border-top: 1px solid var(--gray-color);
     margin-bottom: 80px;
     .container {
         display: flex;
@@ -204,11 +204,11 @@
                 font-weight: 600;
                 font-size: 15px;
                 line-height: 22px;
-                color: #103178;
+                color: var(--main_color);
             }
         }
         .border {
-            border-right: 1px solid #F0F2F5;
+            border-right: 1px solid var(--gray-color);
             padding: 10px 70px;
         }
         .border:last-child {
@@ -258,7 +258,7 @@
             font-weight: 600;
             font-size: 25px;
             line-height: 120%;
-            color: #103178;
+            color: var(--main_color);
             text-align: center;
             margin-bottom: 30px;
         }
@@ -269,7 +269,7 @@
                     font-weight: 500;
                     font-size: 21px;
                     line-height: 130%;
-                    color: #103178;
+                    color: var(--main_color);
                     margin: 20px 0 10px;
                 }
                 .organization {
@@ -279,13 +279,13 @@
                         font-weight: 600;
                         font-size: 14px;
                         line-height: 20px;
-                        color: #5B6C8F;
+                        color: var(--dark-gray);
                         margin-right: 15px;
                     }
                     .author {
                         font-size: 14px;
                         line-height: 20px;
-                        color: #5B6C8F;
+                        color: var(--dark-gray);
                     }
                 }
                 .tag {
@@ -299,7 +299,7 @@
                         line-height: 17px;
                         color:white;
                         margin-right: 10px;
-                        background: #103178;
+                        background: var(--main_color);
                         border-radius: 42px;
                     }
                 }

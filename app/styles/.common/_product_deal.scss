@@ -49,14 +49,14 @@ body {
             display: flex;
             .product-item {
                 position: relative;
-                border: 1px solid gray;
+                border: 1px solid var(--gray-color);
                 padding: 20px 25px;
             }
             .line {
                 margin: 20px 0 15px;
                 width: 116px;
                 height: 1px;
-                background: #F0F2F5;
+                background: var(--gray-color);
             }
             .pcs {
                 width: 90px;
@@ -66,13 +66,13 @@ body {
                 .text {
                     font-size: 13px;
                     line-height: 14px;
-                    color: #5B6C8F;
+                    color: var(--dark-gray);
                 }
                 .number {
                     font-weight: 600;
                     font-size: 26px;
                     line-height: 38px;
-                    color: #103178;
+                    color: var(--main_color);
                 }
             }
             .content {
@@ -83,7 +83,7 @@ body {
                     top: 20px;
                     left: 25px;
                     padding: 0px 10px;
-                    background: #103178;
+                    background: var(--main_color);
                     border-radius: 42px;
                     color: white;
                     width: 50px;
@@ -99,7 +99,7 @@ body {
                 h3 {
                     font-size: 16px;
                     line-height: 23px;
-                    color: #103178;
+                    color: var(--main_color);
                     margin-bottom: 15px;
                 }
                 .price {
@@ -110,7 +110,7 @@ body {
                     .new-price {
                         font-weight: 500;
                         font-size: 18px;
-                        color: #FF9923;
+                        color: var(--bg-color);
                         margin-right: 7px;
                     }
                     .old-price {
@@ -122,7 +122,7 @@ body {
                 .rating {
                     margin-top: 10px;
                     i {
-                        color: #FF9923;
+                        color: var(--bg-color);
                     }
                 }
 
@@ -158,7 +158,7 @@ body {
             line-height: 100%;
             width: 40px;
             height: 60px;
-            background: #FF9923;
+            background: var(--bg-color);
             border-radius: 4px;
             display: flex;
             align-items: center;
@@ -179,6 +179,9 @@ body {
                     }
                     .line {
                         margin: 10px 0 10px;
+                    }
+                    h3 {
+                        height: 70px;
                     }
                 }
             }

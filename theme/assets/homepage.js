@@ -26,9 +26,7 @@ async function addItemCart(id,quantity) {
 
 async function updateCart() {
     return fetch('/cart.js')
-    .then(response =>
-        response.json()
-    )
+    .then( res => res.json() )
     .then( data => data );
 }
 
@@ -40,10 +38,11 @@ async function updateCart() {
 
 function navMenu() {
     let menu = document.querySelector('.btmenu');
-    let nav = document.getElementsByClassName('nav');
+    let nav = document.querySelector('.nav');
     console.log(menu);
     menu.addEventListener('click', function() {
         this.classList.toggle('clicked');
+        nav.classList.toggle('active')
     })
 }
 
