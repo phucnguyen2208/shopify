@@ -1,13 +1,25 @@
 {%- liquid
-	assign productSelect 		= product.selected_or_first_available_variant
-	assign product_metafield 	= product.metafields.c_f
+		assign productSelect 		= product.selected_or_first_available_variant
+		assign product_metafield 	= product.metafields.c_f
 -%}
+
+
+
+
 
 {%- unless product.has_only_default_variant -%}
 	{%- assign disableDefaultVariant = settings.disable_auto_product_selected -%}
 {%- endunless -%}
 
 {%- case type -%}
+
+		{%- when 'heading' -%}
+			{%- liquid
+				assign variant_first = product.variants | first
+				assign first_available_variant = product.first_available_variant | default: variant_first
+			-%}
+			<h2>Only {{first_available_variant.sku}} left in stock</h2>
+
   	{%- when 'title' -%}
   		{%- if section.id == 'static-quickview' -%}
 		  	<h1 class="product-title h3">
@@ -122,12 +134,13 @@
 		          	<div class="product-cart-inner">
 
 		          		<div class="product-cart-qty" data-quantity>
+										<p>Quantity</p>
 		          			<div class="qty-wrapper">
 		          				<div class="qty-select">
-		          					<input type="number" name="quantity" value="1" min="1">
 		          					<div class="qty-group">
+													<a href="javascript:void(0);" class="qty-minus">{%- render 'svg', type: 'icon_minus', fill: '#333333' -%}</a>
+													<input type="number" name="quantity" value="1" min="1">
 		          						<a href="javascript:void(0);" class="qty-plus">{%- render 'svg', type: 'icon_plus', fill: '#333333' -%}</a>
-		          						<a href="javascript:void(0);" class="qty-minus">{%- render 'svg', type: 'icon_minus', fill: '#333333' -%}</a>
 		          					</div>
 		          				</div>
 		          			</div>

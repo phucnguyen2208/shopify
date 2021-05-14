@@ -2503,15 +2503,18 @@ b {
   padding: 0 5px; }
 
 .product-price .price-compare {
-  font-weight: 400;
-  font-size: var(--card-price-compare);
-  color: var(--price-compare-color);
+  font-size: 17px;
+  line-height: 110%;
+  color: #9babcd;
   text-decoration: line-through;
   -webkit-padding-end: 10px;
   padding-inline-end: 10px; }
 
 .product-price .price-sale {
-  color: var(--price-sale-color); }
+  color: var(--bg-color);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 110%; }
 
 .spr-starrating, .spr-starratings {
   margin: 0;
@@ -2568,11 +2571,20 @@ b {
   border: 1px solid var(--body-border-color); }
 
 .product-info {
-  padding-top: 20px; }
+  padding: 30px;
+  background: var(--gray-color); }
 
-@media (min-width: 992px) {
-  .product-info {
-    padding-top: 0; } }
+.product-info h2 {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #12a05c;
+  border-radius: 42px;
+  padding: 0 10px;
+  width: 160px;
+  margin-bottom: 30px; }
 
 .product-info .product-title {
   font-weight: 600;
@@ -2585,7 +2597,7 @@ b {
 .product-info .product-price {
   font-size: calc(var(--card-price) + 6px);
   line-height: 26.4px;
-  margin: 0 0 17px; }
+  margin: 0 0 40px; }
 
 .product-info .product-price .price-compare {
   -webkit-padding-start: 15px;
@@ -2610,8 +2622,18 @@ b {
 .product-info .product-form-cart {
   margin-bottom: 16px; }
 
-.product-info .product-cart .product-cart-inner {
-  display: flex; }
+.product-info .product-form-cart .product-cart-qty {
+  margin-bottom: 10px; }
+
+.product-info .product-form-cart .product-cart-qty p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 110%;
+  color: var(--main_color);
+  margin-bottom: 5px; }
+
+.product-info .product-cart {
+  margin-bottom: 30px; }
 
 .product-info .product-cart .qty-wrapper {
   height: 100%; }
@@ -2623,7 +2645,8 @@ b {
 .product-info .product-cart .product-cart_button button {
   width: 100%;
   height: 100%;
-  padding: 14px 15px; }
+  padding: 14px 15px;
+  border-radius: 42px; }
 
 .product-info .product-cart .product-cart_button button[disabled] {
   cursor: not-allowed;
@@ -2631,6 +2654,9 @@ b {
   background: var(--btn1-bg-cl);
   border-color: var(--btn1-border-cl);
   opacity: .8; }
+
+.product-info .product-cart .product-cart_button button span {
+  text-transform: none; }
 
 .product-info .product-cart .dynamic-btn {
   max-width: 490px;
@@ -2677,14 +2703,17 @@ b {
     margin-inline-end: 30px; } }
 
 .product-info .product-wlcp a {
-  display: flex;
-  align-items: center;
   transition: none; }
 
 .product-info .product-wlcp a .svg__ui {
-  display: flex;
-  -webkit-margin-end: 8px;
-  margin-inline-end: 8px; }
+  display: none; }
+
+.product-info .product-wlcp a .wlcp-target-label span {
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  color: #5b6c8f; }
 
 .product-info .product-wlcp a path {
   stroke: var(--body-link); }
@@ -2743,14 +2772,11 @@ b {
 .qty-select {
   position: relative;
   border: 1px solid var(--body-border-color);
-  -webkit-margin-end: 12px;
-  margin-inline-end: 12px;
   display: flex;
-  width: 108px;
   height: 100%;
+  background: #fff;
   padding: 0;
-  -webkit-padding-start: 15px;
-  padding-inline-start: 15px; }
+  border-radius: 60px; }
 
 .qty-select input {
   width: 100%;
@@ -2759,8 +2785,8 @@ b {
   padding: 0; }
 
 .qty-select .qty-group {
-  flex-direction: column;
-  height: 100%; }
+  height: 100%;
+  padding: 10px 20px; }
 
 .qty-select .qty-group, .qty-select .qty-group > a {
   display: flex;
@@ -2769,7 +2795,16 @@ b {
 
 .qty-select .qty-group > a {
   width: 30px;
-  height: 50%; }
+  height: 50%;
+  color: #5b6c8f; }
+
+.qty-select .qty-group input {
+  font-size: 17px;
+  line-height: 25px;
+  color: #5b6c8f; }
+
+.qty-select .qty-group input[type=number] {
+  padding: 0 0 0 37%; }
 
 .qty-select .svg__ui {
   pointer-events: none; }
@@ -2779,7 +2814,7 @@ b {
 
 @media (min-width: 992px) {
   .product-form-cart .swatch-variants-wrapper .swatch-option:not(:last-child) {
-    margin-bottom: 10px; } }
+    margin-bottom: 20px; } }
 
 .product-form-cart .swatch-variants-wrapper .swatch-header {
   font-size: var(--body-font-size);
@@ -2787,7 +2822,11 @@ b {
   color: var(--body-link); }
 
 .product-form-cart .swatch-variants-wrapper .swatch-header p {
-  margin: 0; }
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 110%;
+  color: var(--main_color); }
 
 .product-form-cart .swatch-variants-wrapper .swatch-item {
   padding: 0;

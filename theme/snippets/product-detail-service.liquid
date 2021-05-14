@@ -1,0 +1,10 @@
+
+
+{%- if section.id == 'static-quickview' -%}
+    <h1 class="product-title h3">
+        <a href="{{product.url}}">{{product.title}}</a>
+    </h1>
+{%- else -%}
+    <h3 class="product-title">{{product.title}}</h3>
+{%- endif -%}
+

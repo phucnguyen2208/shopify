@@ -15,19 +15,24 @@
 
             <div class="product-page-header">
                 <div class="row">
-                    <div class="product-gallery col-lg-6 col-12">
+                    <div class="product-gallery col-lg-5 col-12">
                         {%- render 'product-detail-media', product: product -%}
                     </div>
 
-                    <div class="product-info col-lg-6 col-12">
-                        {%- render 'product-detail-snippet', type: 'title' -%}
-                        {%- render 'product-detail-snippet', type: 'review' -%}
+                    <div class="product-service col-lg-4 col-12">
+                        {%- render 'product-detail-service', product: product -%}
+                    </div>
+
+                    <div class="product-info col-lg-3 col-12">
+                        {% comment %} {%- render 'product-detail-snippet', type: 'title' -%} {% endcomment %}
+                        {% comment %} {%- render 'product-detail-snippet', type: 'review' -%} {% endcomment %}
+                        {%- render 'product-detail-snippet', type: 'heading' -%}
                         {%- render 'product-detail-snippet', type: 'price' -%}
-                        {%- render 'product-detail-snippet', type: 'stock' -%}
+                        {% comment %} {%- render 'product-detail-snippet', type: 'stock' -%} {% endcomment %}
                         {%- render 'product-detail-snippet', type: 'short_description' -%}
                         {%- render 'product-detail-snippet', type: 'form', section: section -%}
                         {%- render 'product-detail-snippet', type: 'wlcp' -%}
-                        {%- render 'product-detail-snippet', type: 'information' -%}
+                        {% comment %} {%- render 'product-detail-snippet', type: 'information' -%} {% endcomment %}
                     </div>
                 </div>
             </div>
