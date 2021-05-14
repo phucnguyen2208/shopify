@@ -2828,6 +2828,9 @@ b {
   line-height: 110%;
   color: var(--main_color); }
 
+.product-form-cart .swatch-variants-wrapper .d-flex {
+  flex-wrap: wrap; }
+
 .product-form-cart .swatch-variants-wrapper .swatch-item {
   padding: 0;
   margin: 0 0 10px;
