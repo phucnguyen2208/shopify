@@ -16,7 +16,9 @@
                     <input type="hidden" name="id" value="{{first_available_variant.id}}" />
                     <div class="grid-item">
                         <div class="image">
-                            <img src="{{ item | img_url : '197x197' }}" alt="">
+                            <a href="{{item.url}}">
+                                <img src="{{ item | img_url : '197x197' }}" alt="">
+                            </a>
                         </div>
                         <button class="add-cart">{{block.settings.add_cart}}</button>
                         <div class="content">

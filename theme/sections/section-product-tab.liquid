@@ -27,7 +27,9 @@
                                             -%}
                                             <div class="carousel-cell">
                                                 <div class="product-img">
-                                                    <img src="{{ item | img_url :'197x197' }}" alt="">
+                                                    <a href="{{item.url}}">
+                                                        <img src="{{ item | img_url : '197x197' }}" alt="">
+                                                    </a>
                                                 </div>
                                                 <button class="add-cart">{{items.settings.add_cart}}</button>
                                                 <div class="content">
@@ -144,12 +146,6 @@
                         "type": "image_picker",
                         "id": "img",
                         "label": "Imge"
-                    },
-                    {
-                        "type": "text",
-                        "id": "text_sale",
-                        "label": "Sale",
-                        "default" : "sale"
                     },
                     {
                         "type" : "text",

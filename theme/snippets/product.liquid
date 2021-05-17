@@ -14,7 +14,9 @@
                 <img src="{{ item | img_url : '197x197' }}" alt="">
             </a>
         </div>
-        <button type="submit" class="add-cart">{{block.settings.add_cart}}</button>
+
+        <button type="submit" class="add-cart" onclick="popupOpen();">{{block.settings.add_cart}}</button>
+<input type="button" class="s3-btn" name="Open" onclick="popupOpen();" value="Click to Show Popup">
         <div class="content">
 
             {%- if idTag != blank -%}

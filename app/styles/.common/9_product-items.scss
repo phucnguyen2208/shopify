@@ -322,19 +322,19 @@
 		margin-bottom: 16px;
 		.product-cart-qty {
 			margin-bottom: 10px;
-			p {
-				font-weight: 500;
-				font-size: 14px;
-				line-height: 110%;
-				color: var(--main_color);
-				margin-bottom: 5px;
-			}
 		}
 	}
 	.product-cart {
 		margin-bottom: 30px;
 		.qty-wrapper {
 			height: 100%;
+		}
+		p {
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 110%;
+			color: var(--main_color);
+			margin-bottom: 5px;
 		}
 		.product-cart_button {
 			max-width: 370px;
@@ -687,3 +687,104 @@
     }
 }
 /* End related product */
+
+.product-service {
+	.product-title {
+		font-weight: 600;
+		font-size: 30px;
+		line-height: 120%;
+		color: var(--main_color);
+		width: 278px;
+		margin-bottom: 10px;
+	}
+	.rating {
+		display: flex;
+		align-items: center;
+		i {
+			color: var(--bg-color);
+		}
+		.review {
+			margin-left: 15px;
+			font-size: 12px;
+			line-height: 17px;
+		}
+	}
+	.check {
+		margin: 30px 0;
+		padding: 20px 0;
+		border-top: 1px solid var(--gray-color);
+		border-bottom: 1px solid var(--gray-color);
+		.content {
+			display: flex;
+			align-items: center;
+			p {
+				font-size: 14px;
+				line-height: 25px;
+				color: var(--main_color);
+				margin-left: 10px;
+			}
+			i {
+				color: #12A05C;
+			}
+		}
+	}
+	.point {
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--gray-color);
+		.wallet , .box {
+			margin-bottom: 15px;
+		}
+		.border {
+			display: flex;
+			align-items: center;
+		}
+	}
+	.tag {
+		margin-top: 30px;
+		margin-bottom: 5px;
+		display: flex;
+		align-items: center;
+		p {
+			margin-right: 10px;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 110%;
+			color: var(--main_color);
+		}
+		&-content {
+			span {
+				margin-right: 10px;
+				font-size: 14px;
+				line-height: 20px;
+				color: var(--dark-gray);
+			}
+		}
+	}
+	.sku {
+		display: flex;
+		align-items: center;
+		p {
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 110%;
+			color: var(--main_color);
+			margin-right: 10px;
+		}
+		span {
+			font-size: 14px;
+			line-height: 20px;
+			color: var(--main_color);
+		}
+	}
+	.product-information {
+		margin-top: 20px;
+		.product-vendor {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+
+
+///////////////////////
+

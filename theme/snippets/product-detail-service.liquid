@@ -1,4 +1,7 @@
-
+{%- liquid
+    assign variant_first = product.variants | first
+    assign first_available_variant = product.first_available_variant | default: variant_first
+-%}
 
 {%- if section.id == 'static-quickview' -%}
     <h1 class="product-title h3">
@@ -8,3 +11,56 @@
     <h3 class="product-title">{{product.title}}</h3>
 {%- endif -%}
 
+<div class="rating">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <div class="review">(4 Reviews)</div>
+</div>
+
+<div class="check">
+    <div class="content">
+        <i class="fas fa-check"></i>
+        <p>Study history up to 30 days</p>
+    </div>
+    <div class="content">
+        <i class="fas fa-check"></i>
+        <p>Up to 5 users simultaneously</p>
+    </div>
+    <div class="content">
+        <i class="fas fa-check"></i>
+        <p>Has HEALTH certificate</p>
+    </div>
+</div>
+
+<div class="point">
+    <div class="wallet border">
+        <i class="fas fa-wallet"></i>
+        <p>{{block.settings.text_wallet}}</p>
+    </div>
+    <div class="box border">
+        <i class="fas fa-box"></i>
+        <p>{{block.settings.text_box}}</p>
+    </div>
+    <div class="delivery border">
+        <i class="fas fa-truck"></i>
+        <p>{{block.settings.text_delivery}}</p>
+    </div>
+</div>
+
+<div class="tag">
+    <p>Tags</p>
+    <div class="tag-content">
+        {%- for tag in product.tags -%}
+            <span>{{ tag }}</span>
+        {%- endfor -%}
+    </div>
+
+</div>
+
+<div class="sku">
+    <p>SKU</p>
+    <span>{{first_available_variant.sku}}</span>
+</div>

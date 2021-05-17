@@ -35,7 +35,7 @@
         <!--===== {{recover_successfully}} ===== -->
         <!--===== {{{{ form.errors | default_errors }}}} ===== -->
         {%- capture recoverFormNoti -%}
-          {%- if recover_successfully -%}{{ "customer.recover_password.confirm_mail" | t }}`;</script>
+          {%- if recover_successfully -%}{{ "customer.recover_password.confirm_mail" | t }}`;
           {%- else -%}{{ form.errors | default_errors }}
           {%- endif -%}
         {%- endcapture -%}
