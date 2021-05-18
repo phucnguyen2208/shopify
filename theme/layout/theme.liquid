@@ -81,15 +81,7 @@
     {%- render 'js-file' -%}
 
 
-    <div class="overlay" id="overlay" style="display:none;"></div>
-    <!-- Popup -->
-    <div class="popup" id="popup" style="display:none;">
-        <div class="popup-inner">
-            <input type="button" name="Close" class="s3-btn-close" onclick="popupClose();" value="×">
-            <h2>This is popup</h2>
-            <p>Hey I am a popup overlay working with JavaScript</p>
-        </div>
-    </div>
+    {%- render 'popup-addcart' -%}
 
 
     <script src="{{ 'homepage.js' | asset_url }}" defer></script>

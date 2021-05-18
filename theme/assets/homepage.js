@@ -14,8 +14,10 @@ async function addItemCart(id,quantity) {
     .then(res => {
         return res.json();
     })
+    //popup
+    .then(data => popupAddCart(data))
     .then(async function(){
-
+        //update cart
         document.getElementById("cartcount").innerHTML = (await updateCart()).item_count;
     })
     .catch((error) => {
@@ -23,40 +25,66 @@ async function addItemCart(id,quantity) {
     });
 };
 
-
 async function updateCart() {
     return fetch('/cart.js')
     .then( res => res.json() )
     .then( data => data );
 }
 
+// Popup Add to Cart
+
+async function popupAddCart(data) {
+    const popup = document.querySelector("#popup");
+    console.log(data);
+
+    const {
+        image,
+        product_title
+    } = data;
+
+    let productTitle = document.querySelector('[data-title-product]'),
+        productImage = document.querySelector('[data-image-product]');
+
+    productImage.src = image;
+    productTitle.innerHTML = product_title;
+
+}
+
+
+async function updatePopup() {
+    return fetch()
+}
+
+
 
 
 
 
 // Nav menu
-
 function navMenu() {
     let menu = document.querySelector('.btmenu');
     let nav = document.querySelector('.nav');
-    console.log(menu);
     menu.addEventListener('click', function() {
         this.classList.toggle('clicked');
         nav.classList.toggle('active')
     })
 }
-
-navMenu()
+navMenu();
 
 
 // Popup Open
 function popupOpen() {
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
-}
-
+};
 // Popup Close
 function popupClose() {
     document.getElementById("popup").style.display = "none";
     document.getElementById("overlay").style.display = "none";
-}
+};
+
+let cont = document.querySelector(".continue");
+cont.addEventListener('click',function(){
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+});

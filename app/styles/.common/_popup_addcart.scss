@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Overlay Styles */
+.overlay {
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+}
+
+/* Popup */
+
+.popup {
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1001;
+    width: 600px;
+    height: 500px;
+    margin: auto;
+    /* Popup Inner */
+    .popup-inner {
+        position: relative;
+        padding: 2em;
+        input.s3-btn-close {
+            position: absolute;
+            top: -0.8em;
+            right: -1em;
+            background: black;
+            border: solid 2px white;
+            color: white;
+            cursor: pointer;
+            border-radius: 15px;
+            outline: none;
+            padding: 5px 10px;
+            height: auto;
+        }
+        .title {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            width: 273px;
+            padding: 4px 15px;
+            background: #12A05C;
+            border-radius: 42px;
+            color: white;
+            margin-bottom: 25px;
+            h2 {
+                font-size: 14px;
+                text-transform: uppercase;
+                margin-left: 20px;
+            }
+        }
+        .content {
+            display: flex;
+            align-items: center;
+            .product-content {
+                width: 50%;
+                border: 1px solid var(--gray-color);
+                padding: 20px 25px;
+                h3 {
+                    font-size: 18px;
+                    line-height: 23px;
+                    color: var(--main_color);
+                    margin: 15px 0;
+                }
+                .price {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    .new-price {
+                        font-weight: 500;
+                        font-size: 18px;
+                        color: var(--bg-color);
+                        margin-right: 10px;
+                    }
+                    .old-price {
+                        font-size: 16px;
+                        color: #9babcd;
+                        text-decoration: line-through;
+                    }
+                }
+            }
+            .checkout {
+                width: 50%;
+                padding: 0px 25px;
+                .des {
+                    font-size: 16px;
+                    line-height: 23px;
+                    color: var(--main_color);
+                    margin-bottom: 10px;
+                }
+                .total {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 30px;
+                    p {
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 23px;
+                        color: var(--main_color);
+                        margin-right: 10px;
+                    }
+                }
+                .continue , .view , .check {
+                    display: block;
+                    text-align: center;
+                    border-radius: 42px;
+                    padding: 10px 0;
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+                .continue , .view {
+                    background: var(--gray-color);
+                    color: var(--main_color);
+                }
+                .check {
+                    background: var(--bg-color);
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+
+/*************
+
+S3 Button
+
+*************/
+
+input.s3-btn {
+    background: #4E92DF;
+    border: none;
+    width: 30%;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    color: white;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    font-size: 18pt;
+}
+
