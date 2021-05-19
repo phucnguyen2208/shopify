@@ -59,12 +59,56 @@
                 {%- endcase -%}
             {%- endfor -%}
         </div>
+
+        {% comment %} <ul class="controls" id="customize-controls-{{section.id}}" aria-label="Carousel Navigation" tabindex="0">
+            <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </li>
+            <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-right fa-5x"></i>
+            </li>
+        </ul> {% endcomment %}
+
     </div>
 </div>
 
 
 
 
+<script>
+
+(function() {
+     const slider = tns({
+    container: '.my-slider-{{section.id}}',
+    loop: true,
+    items: 5,
+    slideBy: 'page',
+    nav: false,
+    autoplay: false,
+    speed: 400,
+    autoplayButtonOutput: false,
+    mouseDrag: true,
+    controlsContainer: "#customize-controls-{{section.id}}",
+    responsive: {
+        320: {
+            items: 2,
+        },
+        375: {
+            items: 2,
+        },
+
+        768: {
+            items: 4,
+        },
+        1024: {
+            items: 5,
+        }
+    }
+
+  });
+})();
+
+</script>
 
 
 <script>

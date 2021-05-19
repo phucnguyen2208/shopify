@@ -4,6 +4,7 @@
 
 .section-footer {
     .container {
+        max-width: 1270px;
         .footer-content {
             padding-bottom: 80px;
             border-bottom: 1px solid var(--gray-color);
@@ -22,6 +23,11 @@
                             font-size: 16px;
                             line-height: 30px;
                             color: var(--main_color);
+                            transition: 0.5s;
+                            &:hover {
+                                transition: 0.5s;
+                                color: var(--bg-color);
+                            }
                         }
                     }
                 }

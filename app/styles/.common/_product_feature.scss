@@ -5,6 +5,7 @@
 .product-feature {
     margin-bottom: 80px;
     .container {
+        max-width: 1270px;
         h2 {
             font-weight: 600;
             font-size: 40px;
@@ -21,7 +22,7 @@
                 position: relative;
                 border: 1px solid var(--gray_color);
                 .image{
-                    min-height: 197px;
+                    max-height: 197px;
                 }
                 .add-cart {
                     margin-bottom: 15px;

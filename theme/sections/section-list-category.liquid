@@ -2,9 +2,19 @@
 
 <div class="list-category">
     <div class="container">
-        <div class="row">
+
+        <ul class="controls" id="customize-controls-{{section.id}}" aria-label="Carousel Navigation" tabindex="0">
+            <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </li>
+            <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-right fa-5x"></i>
+            </li>
+        </ul>
+
+        <div class="category my-slider-{{section.id}}">
         {%- for block in section.blocks -%}
-            <div class="col-md-2">
+            <div class="slider-item">
                 <h2>{{block.settings.block_title}}</h2>
                 <div class="list-item">
                     <ul>
@@ -21,7 +31,41 @@
 
 
 
+<script>
 
+(function() {
+     const slider = tns({
+    container: '.my-slider-{{section.id}}',
+    loop: true,
+    items: 6,
+    slideBy: 'page',
+    autoplay: false,
+    speed: 400,
+    autoplayButtonOutput: false,
+    mouseDrag: true,
+    nav: true,
+    navPosition: "bottom",
+    controlsContainer: "#customize-controls-{{section.id}}",
+    responsive: {
+        320: {
+            items: 2,
+        },
+        375: {
+            items: 3,
+        },
+
+        768: {
+            items: 6,
+        },
+        1024: {
+            items: 6,
+        }
+    }
+
+  });
+})();
+
+</script>
 
 
 

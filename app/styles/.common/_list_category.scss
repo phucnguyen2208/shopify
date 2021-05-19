@@ -2,7 +2,8 @@
 .list-category {
     margin: 80px 0;
     .container {
-        .row {
+        max-width: 1270px;
+        .category {
             h2 {
                 font-weight: 600;
                 font-size: 18px;
@@ -13,13 +14,24 @@
             .list-item {
                 ul {
                     list-style: none;
+                    li {
+                        a {
+                            font-size: 16px;
+                            line-height: 30px;
+                            color: var(--main_color);
+                            transition: 0.5s;
+                            &:hover {
+                                color: var(--bg-color);
+                                transition: 0.5s;
+                            }
+                        }
+                    }
                 }
-                a {
-                    font-size: 16px;
-                    line-height: 30px;
-                    color: var(--main_color);
-                }
+
             }
+        }
+        .controls {
+            display: none;
         }
     }
 
@@ -32,8 +44,8 @@
 	}
     @include mobile {
         .container {
-            .row {
-                .col-md-2 {
+            .category {
+                .slider-item {
                     flex-basis: 50%;
                     margin-bottom: 25px;
                     h2 {

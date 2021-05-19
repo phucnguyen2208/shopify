@@ -1,0 +1,87 @@
+
+<div class="section-gallery">
+    <div class="container">
+        <h2>{{section.settings.title}}</h2>
+        <div class="gallery">
+            {%- for block in section.blocks -%}
+                <div class="gallery-content">
+                    <div class="gallery-content-figua">
+                        <div class="image__style">
+                            <img src="{{ block.settings.image | img_url: 'auto' }}" alt="">
+                        </div>
+                    </div>
+                    <div class="gallery-content-inner">
+                        <div class="gallery-content-inner-text">{{block.settings.text}}</div>
+                        <div class="gallery-content-button">
+                            <a href="collections">{{block.settings.button}}</a>
+                        </div>
+                    </div>
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Gallery page",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Settings"
+        },
+        {
+            "type" : "text",
+            "id" : "title",
+            "label" : {
+            "en" : "Title"
+            },
+            "default" : "Check out the most popular categories"
+        }
+    ],
+    "blocks": [
+        {
+            "type" : "Header",
+            "name" : "Gallery",
+            "settings" : [
+                {
+                    "type": "image_picker",
+                    "id" : "image",
+                    "label" : {
+                        "en" : "Image"
+                    }
+                },
+                {
+                    "type" : "text",
+                    "id" : "text",
+                    "label" : {
+                    "en" : "Text"
+                    },
+                    "default" : "Face Masks"
+                },
+                {
+                    "type" : "text",
+                    "id" : "button",
+                    "label" : {
+                    "en" : "Text Button"
+                    },
+                    "default" : "More"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Advanced layout",
+            "name": "Gallery section"
+        }
+    ]
+}
+{% endschema %}

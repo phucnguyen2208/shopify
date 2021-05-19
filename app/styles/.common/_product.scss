@@ -7,6 +7,7 @@
     margin-bottom: 70px;
     position: relative;
     .container {
+        max-width: 1270px;
         h2 {
             text-align: center;
             margin-bottom: 30px;
@@ -35,47 +36,66 @@
             display: flex;
             .product-item {
                 position: relative;
-                border: 1px solid gray;
+                border: 1px solid var(--gray-color);
                 padding: 20px 25px;
-            }
-
-            .content {
-                text-align: initial;
-                margin-top: 15px;
-
-                .tag {
-                    position: absolute;
-                    top: 20px;
-                    left: 25px;
-                    span {
-                        margin-right: 10px;
-                        padding: 0px 10px;
-                        background: #F00000;
-                        border-radius: 42px;
-                        color: white;
+                .product-img {
+                    img {
+                        transition: 0.5s;
                     }
                 }
-                h3 {
-                    font-size: 16px;
-                    line-height: 23px;
-                    color: var(--main_color);
-                    margin-bottom: 15px;
-                }
-                .price {
-                    line-height: 1.1;
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 10px;
-                    .new-price {
-                        font-weight: 500;
-                        font-size: 18px;
-                        color: var(--bg-color);
-                        margin-right: 7px;
+
+                .content {
+                    text-align: initial;
+                    margin-top: 15px;
+
+                    .tag {
+                        position: absolute;
+                        top: 20px;
+                        left: 25px;
+                        span {
+                            margin-right: 10px;
+                            padding: 0px 10px;
+                            background: #F00000;
+                            border-radius: 42px;
+                            color: white;
+                        }
                     }
-                    .old-price {
+                    h3 {
                         font-size: 16px;
-                        color: #9BABCD;
-                        text-decoration: line-through;
+                        line-height: 23px;
+                        color: var(--main_color);
+                        margin-bottom: 15px;
+                        transition: 0.5s;
+                        &:hover {
+                            color: var(--bg-color);
+                            transition: 0.5s;
+                        }
+                    }
+                    .price {
+                        line-height: 1.1;
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10px;
+                        .new-price {
+                            font-weight: 500;
+                            font-size: 18px;
+                            color: var(--bg-color);
+                            margin-right: 7px;
+                        }
+                        .old-price {
+                            font-size: 16px;
+                            color: #9BABCD;
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+                &:hover {
+                    .product-img {
+                        overflow: hidden;
+                        img {
+                            transform: scale(1.05);
+                            transition: 0.5s;
+                        }
                     }
                 }
             }
@@ -91,7 +111,8 @@
                 display: flex;
             }
             .next {
-                right: 10%;
+                right: 5%;
+                margin-right: 21px;
             }
         }
     }
@@ -172,4 +193,9 @@
     color: #FFFFFF;
     padding: 5px 20px;
     cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+        background:var(--main_color);
+        transition: 0.5s;
+    }
 }

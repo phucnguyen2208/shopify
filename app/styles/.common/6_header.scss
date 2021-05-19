@@ -5,6 +5,7 @@
     .topbar {
         height: 30px;
         .container {
+            max-width: 1270px;
             display: flex;
             height: 100%;
             text-align: center;
@@ -78,11 +79,12 @@
         height: 100px;
         border-bottom : 1px solid var(--main_color);
         .container {
+            max-width: 1270px;
             height: 100%;
             display: flex;
             align-items:center;
             .logo {
-                margin-right: 50px;
+                margin-right: 180px;
                 .hamburger {
                     display: none;
                 }
@@ -124,6 +126,7 @@
     .navigation {
         height: 60px;
         .container {
+            max-width: 1270px;
             display: flex;
             align-items: center;
             height: 100%;
