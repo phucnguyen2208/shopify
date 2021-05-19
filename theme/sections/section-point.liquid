@@ -5,19 +5,19 @@
             {%- case block.type -%}
                 {%- when 'block-wallet' -%}
                     <div class="wallet border">
-                        <i class="fas fa-wallet"></i>
+                        <span class="svg-element-ui"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.1583 1.25V6.025H3.63333C3.02452 5.98902 2.45244 5.7218 2.03411 5.27801C1.61577 4.83422 1.38278 4.24738 1.38278 3.6375C1.38278 3.02762 1.61577 2.44078 2.03411 1.99699C2.45244 1.55319 3.02452 1.28598 3.63333 1.25H17.1583Z" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10" stroke-linecap="square"></path><path d="M15.5667 10.8335H18.75V14.0168H15.5667C15.1445 14.0168 14.7397 13.8491 14.4412 13.5506C14.1427 13.2521 13.975 12.8473 13.975 12.4252C13.975 12.003 14.1427 11.5982 14.4412 11.2997C14.7397 11.0012 15.1445 10.8335 15.5667 10.8335Z" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10" stroke-linecap="square"></path><path d="M18.75 6.02497V18.75H2.84168C2.42022 18.7478 2.01664 18.5794 1.71862 18.2814C1.4206 17.9833 1.2522 17.5798 1.25001 17.1583V3.6333C1.24892 3.94699 1.30976 4.2578 1.42904 4.54792C1.54832 4.83804 1.7237 5.10177 1.94512 5.32396C2.16655 5.54616 2.42965 5.72246 2.71936 5.84275C3.00906 5.96305 3.31966 6.02497 3.63335 6.02497H18.75Z" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10" stroke-linecap="square"></path> </svg></span>
                         <p>{{block.settings.text_wallet}}</p>
                     </div>
 
                 {%- when 'block-box' -%}
                     <div class="box border">
-                        <i class="fas fa-box"></i>
+                        <span class="svg-element-ui"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5667 1.25H4.43333L1.25 6.81667V18.75H18.75V6.81667L15.5667 1.25Z" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path><path d="M3.6333 15.5664H6.81663" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path><path d="M10 1.25V10" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path><path d="M1.25 6.81641H18.75" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path> </svg></span>
                         <p>{{block.settings.text_box}}</p>
                     </div>
 
                 {%- when 'block-delivery' -%}
                     <div class="delivery border">
-                        <i class="fas fa-truck"></i>
+                        <span class="svg-element-ui"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.22497 16.3669C6.10402 16.3669 6.81663 15.6543 6.81663 14.7753C6.81663 13.8962 6.10402 13.1836 5.22497 13.1836C4.34591 13.1836 3.6333 13.8962 3.6333 14.7753C3.6333 15.6543 4.34591 16.3669 5.22497 16.3669Z" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path><path d="M14.775 16.3669C15.6541 16.3669 16.3667 15.6543 16.3667 14.7753C16.3667 13.8962 15.6541 13.1836 14.775 13.1836C13.896 13.1836 13.1833 13.8962 13.1833 14.7753C13.1833 15.6543 13.896 16.3669 14.775 16.3669Z" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path><path d="M3.63333 14.775H1.25V3.6333H15.5667V6.81663L17.1583 9.99997L18.75 10.8916V14.775H16.3667" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path><path d="M13.1833 14.7749H6.81665" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path><path d="M17.1583 9.99974H12.3833V6.81641H15.5666" stroke="#103178" stroke-width="1.91" stroke-miterlimit="10"></path> </svg></span>
                         <p>{{block.settings.text_delivery}}</p>
                     </div>
             {%- endcase -%}

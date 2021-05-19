@@ -220,7 +220,7 @@
         .wallet , .box , .delivery {
             display: flex;
             align-items: center;
-            i {
+            .svg-element-ui {
                 margin-right: 13px;
             }
             p {

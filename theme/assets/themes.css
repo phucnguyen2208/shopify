@@ -3848,7 +3848,7 @@ b {
   display: flex;
   align-items: center; }
 
-.section-point .container .box i, .section-point .container .delivery i, .section-point .container .wallet i {
+.section-point .container .box .svg-element-ui, .section-point .container .delivery .svg-element-ui, .section-point .container .wallet .svg-element-ui {
   margin-right: 13px; }
 
 .section-point .container .box p, .section-point .container .delivery p, .section-point .container .wallet p {
