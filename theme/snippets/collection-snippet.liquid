@@ -21,7 +21,7 @@
 					</ul>
 				</div>
 
-				<div class="collection-page-view"> 
+				<div class="collection-page-view">
 					{%- assign currentTotal = paginate.current_offset | plus: paginate.page_size -%}
 					{%- if currentTotal > collection.all_products_count -%}
 						{%- assign currentTotal = collection.all_products_count -%}

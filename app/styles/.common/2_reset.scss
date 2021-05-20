@@ -278,7 +278,7 @@ textarea {
     @include point-cursor;
     display: inline-block;
     padding: 10px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-align: center;
     box-shadow: none;
     text-decoration: none;
@@ -637,4 +637,15 @@ body:not(.templateIndex) #main-content {
             border-color: var(--btn1-hover-border-cl);
         }
     }
+}
+
+
+//red
+.c-red, .fc-red a {
+    color: #FF0000;
+    background: #FF0000;
+}
+
+#backToTop {
+    bottom: 70px;
 }

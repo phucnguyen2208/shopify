@@ -380,7 +380,6 @@ textarea {
   cursor: pointer;
   display: inline-block;
   padding: 10px;
-  text-transform: uppercase;
   text-align: center;
   box-shadow: none;
   text-decoration: none;
@@ -594,7 +593,7 @@ img.lazyload:not([src]) {
 #backToTop {
   position: fixed;
   right: 25px;
-  bottom: 70px;
+  bottom: 200px;
   width: 40px;
   height: 40px;
   padding: 0;
@@ -715,6 +714,13 @@ body:not(.templateIndex) #main-content {
   color: var(--btn1-hover-cl);
   background: var(--btn1-hover-bg-cl);
   border-color: var(--btn1-hover-border-cl); }
+
+.c-red, .fc-red a {
+  color: red;
+  background: red; }
+
+#backToTop {
+  bottom: 70px; }
 
 /*!
  * Bootstrap Grid v4.0.0 (https://getbootstrap.com)
@@ -2316,10 +2322,7 @@ b {
 .product-card {
   padding: 15px;
   height: 100%;
-  border-bottom: 1px solid var(--body-border-color);
-  border-inline-end-width: 1px;
-  border-inline-end-style: solid;
-  border-inline-end-color: var(--body-border-color); }
+  border: 1px solid var(--gray-color); }
 
 .product-card .product-card__header {
   position: relative;
@@ -2452,8 +2455,8 @@ b {
   padding: 4px 8px; }
 
 .product-card .product-card__title {
-  font-size: var(--card-title);
-  line-height: calc(var(--card-title) + 4px);
+  font-size: 18px;
+  line-height: calc(var(--card-title) + 10px);
   font-weight: var(--body-font-weight);
   margin: 0 0 10px; }
 
@@ -2520,7 +2523,7 @@ b {
 .product-price .price-sale {
   color: var(--bg-color);
   font-weight: 600;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 110%; }
 
 .spr-starrating, .spr-starratings {

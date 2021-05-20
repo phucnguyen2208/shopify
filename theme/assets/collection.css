@@ -310,11 +310,13 @@
 
 .section-collection-template .product-card-list .product-bottom .product-cart-form .add-to-cart {
   width: 100%;
-  padding: 7px 0; }
+  padding: 7px 0;
+  border-radius: 42px; }
 
 @media (min-width: 576px) {
   .section-collection-template .product-card-list .product-bottom .product-cart-form .add-to-cart {
-    padding: 13px 10px; } }
+    padding: 13px 10px;
+    font-size: 14px; } }
 
 @media (hover: hover) {
   .section-collection-template .product-card-list .product-bottom .product-cart-form .add-to-cart:hover .svg__ui path {
@@ -353,9 +355,6 @@
   display: flex;
   align-items: center;
   justify-content: center; }
-
-.section-collection-template .product-card-list .product-bottom > button circle, .section-collection-template .product-card-list .product-bottom > button path {
-  stroke: var(--body-link); }
 
 @media (hover: hover) {
   .section-collection-template .product-card-list .product-bottom > button:hover {
@@ -412,8 +411,7 @@
     stroke: var(--btn1-cl); } }
 
 .section-collection-template .product-card-list .product-bottom .product-card--compare path {
-  stroke: initial;
-  fill: var(--body-link); }
+  stroke: initial; }
 
 .section-collection-template .product-card-list .product-bottom .product-card--compare > a.arn_added path {
   stroke: initial;
@@ -424,12 +422,8 @@
     stroke: initial;
     fill: var(--btn1-cl); } }
 
-.section-collection-template .product-card-list .product-bottom .btn-quick-view {
-  display: none; }
-
-@media (min-width: 1025px) {
-  .section-collection-template .product-card-list .product-bottom .btn-quick-view {
-    display: block; } }
+.collection-toolbar {
+  background: var(--gray-color); }
 
 .collection-toolbar-inner {
   display: flex;
@@ -457,9 +451,6 @@
   display: flex;
   align-items: center;
   justify-content: center; }
-
-.collection-toolbar-inner .toolbar_view-list li a svg path {
-  fill: var(--body-link); }
 
 .collection-toolbar-inner .toolbar_view-list li a.active {
   background: var(--btn1-bg-cl);
@@ -513,7 +504,7 @@
   left: auto;
   top: 100%;
   right: 0;
-  background: var(--body-bg-color);
+  background: #fff;
   z-index: 1;
   min-width: 200px;
   padding: 5px 0;
